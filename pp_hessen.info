@@ -1,0 +1,5 @@
+; $Id$
+name = Piratenpartei Hessen
+description = Block für die Piraten aus und in Hessen
+core = 6.x
+version = "6.x-1.0"

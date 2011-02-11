@@ -1,0 +1,82 @@
+<?php
+
+/**
+* Display help and module information.
+* @param path
+*   Which path of the site we're displaying help.
+* @param arg
+*   Array that holds the current path as would be returned from arg() function.
+* @return
+*   help text for the path.
+*/
+function pp_hessen_help($path, $arg) {
+  $output = '';
+  switch ($path) {
+    case "admin/help#pp_hessen":
+      $output = '<p>'. t("Zeigt den Block für Piraten aus und in Hessen").'</p>';
+      break;
+  }
+  return $output;
+} // function pp_hessen_help
+
+
+/**
+* Valid permissions for this module
+* @return array An array of valid permissions for the pp_hessen module
+*/
+
+function pp_hessen_perm() {
+  return array('access pp_hessen content');
+} // function pp_hessen_perm()
+
+
+/**
+* Generate HTML for the pp_hessen block
+* @param op the operation from the URL
+* @param delta offset
+* @returns block HTML
+*/
+function pp_hessen_block($op='list', $delta=0) {
+	// listing of blocks, such as on the admin/block page
+		if ($op == "list") {
+			$block[0]["info"] = t('Piraten in Hessen');
+			return $block;
+		} else if ($op == 'view') {
+			// our block content
+				$sites = array(
+					"Bergstrasse"			=>	"www.piraten-bergstrasse.de",
+					"Fulda"					=>	"www.piraten-fulda.de",
+					"Frankfurt"				=>	"www.piratenpartei-frankfurt.de",
+					"Gießen"				=>	"www.piratenpartei-giessen.de",
+					"Groß-Gerau"			=>	"www.piratenpartei-gross-gerau.de",
+					"Hochtaunus"			=>	"www.piratenpartei-hochtaunus.de",
+					"Kassel"				=>	"www.piratenpartei-kassel.de",
+					"Kreis Offenbach"		=>	"www.kreispiraten-of.de",
+					"Lahn-Dill"				=>	"www.piratenpartei-lahndill.de",
+					"Main-Kinzig"			=>	"www.kinzigpiraten.de",
+					"Main-Taunus"			=>	"www.piraten-mtk.de",
+					"Marburg"				=>	"www.piratenpartei-marburg.de",
+					"Offenbach"				=>	"www.piratenpartei-offenbach.de",
+					"Odenwald"				=>	"www.piratenpartei-odenwald.de",
+					"Waldeck-Frankenberg"	=>	"piraten-waldeck-frankenberg.de",
+					"Wetterau"				=>	"www.piratenpartei-wetterau.de",
+					"Wiesbaden"				=>	"www.piratenpartei-wiesbaden.de",
+				);
+				ksort($sites);
+
+			// content variable that will be returned for display
+				$block_content	= '<ul class="menu">';
+				foreach ($sites as $location => $url) {
+					if ($_SERVER["SERVER_NAME"] != $url)
+						$block_content .= '<li><a href="http://'.$url.'" title="'.$location.'">'.$location.'</a></li>';
+				}
+				$block_content .= '</ul><div style="width: 100%; text-align: right;"><a href="http://wiki.piratenpartei.de/HE:Gliederungen" title="mehr">&raquo; Mehr</a></div>';
+
+			// set up the block
+				$block['subject'] = 'Piraten in Hessen';
+				$block['content'] = $block_content;
+				return $block;
+		}
+}
+
+?>
