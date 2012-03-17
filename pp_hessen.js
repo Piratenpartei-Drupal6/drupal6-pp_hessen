@@ -57,8 +57,8 @@ var pp_hessen = {
 		title: "Kreis Marburg-Biedenkopf",
 		lines: [
 			"47 Piraten", // 39
-			"<a href='http://jensfricke.com'>1 Pirat im Kreistag</a>",
-			"1 Pirat in Marburg",
+			"<a href='http://www.piratenpartei-marburg.de/abgeordnete'>1 Pirat im Kreistag</a>",
+			"<a href='http://www.piratenpartei-marburg.de/abgeordnete'>1 Pirat in Marburg</a>",
 			"<a href='http://www.piratenpartei-marburg.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
