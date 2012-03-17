@@ -1,5 +1,6 @@
 ; $Id$
-name = Piratenpartei Hessen
-description = Block für die Piraten aus und in Hessen
+package = Piratenpartei
+name = Piratenpartei Piraten in Hessen
+description = Zeigt einen Block aller aktiven Piraten inkl. Verlinkung aus und in Hessen an.
 core = 6.x
-version = "6.x-1.0"
+version = "6.x-1.4"

@@ -1,6 +1,107 @@
 <?php
 
 /**
+*
+*/
+function pp_hessen_init() {
+	// get path
+		$module_path = drupal_get_path('module', 'pp_hessen');
+
+	// add css
+		drupal_add_css($module_path.'/pp_hessen.css');
+
+	// add js
+		drupal_add_js($module_path.'/pp_hessen.js');
+
+	// sites
+		$sites = array(
+			"Bergstrasse"			=>	array(
+											"url"	=>	"www.piraten-bergstrasse.de",
+											"id"	=>	25,
+										),
+			"Darmstadt"				=>	array(
+											"url"	=>	"www.piratenpartei-dadadi.de",
+											"id"	=>	23, /* no drupal*/
+										),
+			"Fulda"					=>	array(
+											"url"	=>	"www.piraten-fulda.de",
+											"id"	=>	9,
+										),
+			"Frankfurt"				=>	array(
+											"url"	=>	"www.piratenpartei-frankfurt.de",
+											"id"	=>	16,
+										),
+			"Gießen"				=>	array(
+											"url"	=>	"www.piraten-giessen.de",
+											"id"	=>	11,
+										),
+			"Groß-Gerau"			=>	array(
+											"url"	=>	"www.piratenpartei-gross-gerau.de",
+											"id"	=>	22,
+										),
+			"Hochtaunus"			=>	array(
+											"url"	=>	"www.piratenpartei-hochtaunus.de",
+											"id"	=>	15,
+										),
+			"Kassel"				=>	array(
+											"url"	=>	"www.piratenpartei-kassel.de",
+											"id"	=>	2,
+										),
+			"Kreis Offenbach"		=>	array(
+											"url"	=>	"www.kreispiraten-of.de",
+											"id"	=>	18,
+										),
+			"Lahn-Dill"				=>	array(
+											"url"	=>	"www.piratenpartei-lahn-dill.de",
+											"id"	=>	10,
+										),
+			"Main-Kinzig"			=>	array(
+											"url"	=>	"www.kinzigpiraten.de",
+											"id"	=>	13,
+										),
+			"Main-Taunus"			=>	array(
+											"url"	=>	"www.piraten-mtk.de",
+											"id"	=>	21,
+										),
+			"Marburg"				=>	array(
+											"url"	=>	"www.piratenpartei-marburg.de",
+											"id"	=>	7,
+										),
+			"Offenbach"				=>	array(
+											"url"	=>	"www.piratenpartei-offenbach.de",
+											"id"	=>	17,
+										),
+			"Odenwald"				=>	array(
+											"url"	=>	"www.piratenpartei-odenwald.de",
+											"id"	=>	26,
+										),
+			"Waldeck-Frankenberg"	=>	array(
+											"url"	=>	"piraten-waldeck-frankenberg.de",
+											"id"	=>	4, /*no drupal */
+										),
+			"Wetterau"				=>	array(
+											"url"	=>	"www.piratenpartei-wetterau.de",
+											"id"	=>	12,
+										),
+			"Wiesbaden"				=>	array(
+											"url"	=>	"www.piratenpartei-wiesbaden.de",
+											"id"	=>	20, /* no drupal*/
+										),
+		);
+		#ksort($sites);
+
+	// find home site
+		$homesite = 0;
+		foreach ($sites as $location => $data) {
+			if ($_SERVER["SERVER_NAME"] == $data["url"])
+				$homesite = $data["id"];
+		}
+
+	// init js
+		drupal_add_js("var pp_hessen_default = ".$homesite.";", 'inline');
+}
+
+/**
 * Display help and module information.
 * @param path
 *   Which path of the site we're displaying help.
@@ -24,10 +125,9 @@ function pp_hessen_help($path, $arg) {
 * Valid permissions for this module
 * @return array An array of valid permissions for the pp_hessen module
 */
-
-function pp_hessen_perm() {
-  return array('access pp_hessen content');
-} // function pp_hessen_perm()
+#function pp_hessen_perm() {
+#  return array('administer pp_hessen');
+#} // function pp_hessen_perm()
 
 
 /**
@@ -42,19 +142,21 @@ function pp_hessen_block($op='list', $delta=0) {
 			$block[0]["info"] = t('Piraten in Hessen');
 			return $block;
 		} else if ($op == 'view') {
+/*
 			// our block content
 				$sites = array(
 					"Bergstrasse"			=>	"www.piraten-bergstrasse.de",
+					"Darmstadt"			=>	"www.piratenpartei-dadadi.de",
 					"Fulda"					=>	"www.piraten-fulda.de",
 					"Frankfurt"				=>	"www.piratenpartei-frankfurt.de",
-					"Gießen"				=>	"www.piratenpartei-giessen.de",
+					"Gießen"				=>	"www.piraten-giessen.de",
 					"Groß-Gerau"			=>	"www.piratenpartei-gross-gerau.de",
 					"Hochtaunus"			=>	"www.piratenpartei-hochtaunus.de",
 					"Kassel"				=>	"www.piratenpartei-kassel.de",
 					"Kreis Offenbach"		=>	"www.kreispiraten-of.de",
-					"Lahn-Dill"				=>	"www.piratenpartei-lahndill.de",
+					#"Lahn-Dill"				=>	"www.piratenpartei-lahndill.de",
 					"Main-Kinzig"			=>	"www.kinzigpiraten.de",
-					"Main-Taunus"			=>	"www.piraten-mtk.de",
+					#"Main-Taunus"			=>	"www.piraten-mtk.de",
 					"Marburg"				=>	"www.piratenpartei-marburg.de",
 					"Offenbach"				=>	"www.piratenpartei-offenbach.de",
 					"Odenwald"				=>	"www.piratenpartei-odenwald.de",
@@ -71,6 +173,51 @@ function pp_hessen_block($op='list', $delta=0) {
 						$block_content .= '<li><a href="http://'.$url.'" title="'.$location.'">'.$location.'</a></li>';
 				}
 				$block_content .= '</ul><div style="width: 100%; text-align: right;"><a href="http://wiki.piratenpartei.de/HE:Gliederungen" title="mehr">&raquo; Mehr</a></div>';
+*/
+
+			// vars
+				$module_path = drupal_get_path('module', 'pp_hessen');
+
+			// map
+				$block_content  = '<img name="pp_hessen_karteHessen" src="/'.$module_path.'/pp_hessen_blind.gif" width="160" height="229" border="0" id="pp_hessen_karteHessen" usemap="#m_hessenkarte" alt="" />';
+				$block_content .= '<map name="m_hessenkarte" id="m_hessenkarte">';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'ksl\');"  onclick="pp_hessen_clickHessen(\'ksl\');"  alt="" shape="poly" coords="92,22,92,24,92,26,92,30,88,30,89,31,89,38,87,40,88,41,89,42,90,42,90,44,92,46,93,49,96,48,96,47,98,47,99,42,101,42,102,41,102,41,104,41,104,43,107,45,110,44,111,44,111,44,112,45,114,44,117,46,117,48,119,49,122,48,121,47,122,45,124,44,125,42,128,42,129,42,130,41,125,41,124,39,122,38,123,36,125,36,128,37,124,35,122,35,118,33,117,37,117,38,114,40,113,38,112,40,107,39,104,36,106,35,105,32,109,32,111,32,113,31,114,32,116,33,117,31,116,31,116,30,118,30,118,27,120,26,122,26,122,25,121,22,122,20,119,15,121,14,121,12,120,11,123,11,121,10,121,8,124,10,125,10,125,8,122,5,122,3,121,3,119,3,118,4,116,3,115,4,113,3,113,2,113,1,111,1,110,1,110,2,109,3,107,4,106,4,103,5,105,7,105,8,102,11,101,13,99,16,96,17,96,19,93,20,92,22" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'ks\');"   onclick="pp_hessen_clickHessen(\'ks\');"   alt="" shape="poly" coords="117,31,118,33,117,37,117,38,114,40,113,38,112,40,107,39,104,36,106,35,105,32,109,32,111,32,113,31,114,32,116,33,117,31" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'wmk\');"  onclick="pp_hessen_clickHessen(\'wmk\');"  alt="" shape="poly" coords="128,37,125,36,123,36,122,38,124,39,125,41,130,41,129,42,128,42,125,42,124,44,122,45,121,47,122,48,125,48,125,50,128,52,131,52,131,59,132,59,134,59,136,62,138,62,140,62,145,64,144,67,146,67,147,66,152,66,153,67,154,67,157,67,158,66,159,64,157,62,154,61,155,57,156,56,156,55,153,53,153,52,155,52,158,56,158,55,158,52,158,52,158,50,159,48,158,48,156,46,154,46,152,44,149,44,150,42,150,42,148,41,148,40,149,39,148,39,144,38,142,36,141,37,141,36,141,34,140,31,140,31,140,29,140,27,139,25,135,25,137,29,135,29,135,26,133,26,132,26,131,28,126,30,126,31,128,35,130,33,130,35,130,36,128,37" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'wfb\');"  onclick="pp_hessen_clickHessen(\'wfb\');"  alt="" shape="poly" coords="48,69,50,71,56,71,62,67,62,68,64,69,64,70,66,69,69,71,71,70,74,71,76,71,76,69,77,70,79,73,83,73,83,71,82,69,83,68,85,67,87,64,87,64,87,62,90,61,93,57,95,54,94,53,93,52,93,49,92,46,90,44,90,42,89,42,88,41,87,40,89,38,89,31,88,30,92,30,92,26,92,24,92,22,88,22,87,20,88,17,87,16,83,15,80,15,75,18,77,21,77,23,78,23,79,25,78,27,75,27,69,27,65,29,63,28,61,29,60,32,59,32,57,32,54,37,53,38,54,39,56,41,62,39,64,39,65,40,64,41,65,44,67,45,65,46,65,49,62,53,62,55,63,55,60,56,59,57,53,56,49,58,51,59,50,62,51,64,51,65,48,68,48,69" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'sek\');"  onclick="pp_hessen_clickHessen(\'sek\');"  alt="" shape="poly" coords="93,49,93,52,94,53,95,54,93,57,90,61,87,62,87,64,87,64,85,67,83,68,82,69,83,71,83,73,79,73,79,73,82,74,82,76,83,76,84,74,88,75,89,77,89,78,90,81,90,83,94,85,96,84,98,86,101,86,102,87,107,89,109,88,111,86,113,86,114,83,113,80,113,79,112,78,112,77,112,76,117,72,117,72,116,70,117,68,118,68,118,67,118,64,119,64,121,64,125,59,129,60,131,59,131,52,128,52,125,50,125,48,122,48,119,49,117,48,117,46,114,44,112,45,111,44,111,44,110,44,107,45,104,43,104,41,102,41,102,41,101,42,99,42,98,47,96,47,96,48,93,49" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'hr\');"   onclick="pp_hessen_clickHessen(\'hr\');"   alt="" shape="poly" coords="146,67,148,72,149,72,148,73,144,73,142,73,142,74,142,75,144,74,143,76,144,76,145,75,146,76,148,77,148,79,146,81,146,82,145,85,143,84,142,85,141,87,142,89,140,90,138,89,138,88,135,88,131,87,130,86,128,88,126,90,127,92,123,95,121,93,120,94,120,91,118,91,117,91,113,94,111,90,110,91,109,88,111,86,113,86,114,83,113,80,113,79,112,78,112,77,112,76,117,72,117,72,116,70,117,68,118,68,118,67,118,64,119,64,121,64,125,59,129,60,131,59,132,59,134,59,136,62,138,62,140,62,145,64,144,67,146,67" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'mr\');"   onclick="pp_hessen_clickHessen(\'mr\');"   alt="" shape="poly" coords="40,80,42,78,42,77,44,75,45,74,47,69,48,69,50,71,56,71,62,67,62,68,64,69,64,70,66,69,69,71,71,70,74,71,76,71,76,69,77,70,79,73,79,73,82,74,82,76,83,76,84,74,88,75,89,77,89,78,90,81,90,83,90,84,88,84,87,85,87,86,82,88,82,90,78,92,77,93,75,94,75,95,75,96,74,98,72,97,70,96,67,98,66,97,64,98,63,98,62,98,58,96,58,97,56,99,53,96,52,96,52,93,51,93,49,93,46,94,45,92,44,90,46,88,46,87,44,87,43,87,42,85,43,82,41,81,40,80,40,80" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'vb\');"   onclick="pp_hessen_clickHessen(\'vb\');"   alt="" shape="poly" coords="111,123,110,124,108,127,106,129,104,129,103,129,103,127,104,126,102,122,99,121,99,124,97,121,91,123,90,125,90,123,87,124,86,123,84,120,84,119,85,118,83,117,85,115,87,115,89,112,89,111,87,110,86,110,85,109,84,107,81,106,77,102,79,99,78,98,77,96,75,96,75,95,75,94,77,93,78,92,82,90,82,88,87,86,87,85,88,84,90,84,90,83,94,85,96,84,98,86,101,86,102,87,107,89,109,88,110,91,111,90,113,94,117,91,118,91,120,91,120,94,120,95,121,98,122,99,121,102,122,105,120,107,118,106,116,104,113,103,111,101,111,102,111,104,113,106,111,110,113,110,112,112,110,112,110,114,108,119,110,120,110,122,111,123" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'fd\');"   onclick="pp_hessen_clickHessen(\'fd\');"   alt="" shape="poly" coords="140,90,138,89,138,88,135,88,131,87,130,86,128,88,126,90,127,92,123,95,121,93,120,94,120,95,121,98,122,99,121,102,122,105,120,107,118,106,116,104,113,103,111,101,111,102,111,104,113,106,111,110,113,110,112,112,110,112,110,114,108,119,110,120,110,122,111,123,111,123,112,126,116,129,120,128,121,129,124,131,125,131,128,132,129,129,129,126,129,125,132,125,133,126,134,127,136,128,139,127,141,125,144,123,145,121,147,119,147,117,148,116,148,114,148,113,148,111,148,108,148,107,147,106,148,105,150,105,150,104,150,103,149,102,148,101,148,100,145,100,142,101,143,103,142,104,140,104,139,103,137,104,137,100,140,98,139,97,141,93,141,92,140,92,140,91,140,90" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'ldk\');"  onclick="pp_hessen_clickHessen(\'ldk\');"  alt="" shape="poly" coords="26,106,24,105,25,103,24,101,24,101,24,100,24,98,24,98,24,97,25,96,26,96,27,92,25,87,27,85,30,82,32,81,34,78,35,78,36,80,40,80,40,80,41,81,43,82,42,85,43,87,44,87,46,87,46,88,44,90,45,92,46,94,49,93,51,93,52,93,52,96,53,96,53,97,50,102,50,104,51,105,52,104,54,106,55,108,55,109,56,110,54,112,52,113,54,114,56,114,58,115,57,117,55,117,52,118,51,120,51,120,50,120,51,125,53,125,51,125,49,127,48,127,46,125,43,122,44,120,43,120,41,121,40,119,39,116,37,115,36,114,33,110,33,109,31,108,29,110,27,108,26,106" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'gi\');"   onclick="pp_hessen_clickHessen(\'gi\');"   alt="" shape="poly" coords="83,117,85,115,87,115,89,112,89,111,87,110,86,110,85,109,84,107,81,106,77,102,79,99,78,98,77,96,75,96,74,98,72,97,70,96,67,98,66,97,64,98,63,98,62,98,58,96,58,97,56,99,53,96,53,97,50,102,50,104,51,105,52,104,54,106,55,108,55,109,56,110,54,112,52,113,54,114,56,114,58,115,57,117,55,117,52,118,51,120,51,120,50,120,51,125,53,125,54,125,55,123,53,122,58,118,60,118,60,118,62,119,64,119,65,120,67,119,68,121,67,122,67,123,68,124,72,124,74,124,74,123,77,124,80,122,79,118,81,118,81,118,83,117" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'fb\');"   onclick="pp_hessen_clickHessen(\'fb\');"   alt="" shape="poly" coords="66,150,66,148,67,147,68,148,69,147,67,144,68,143,69,144,73,140,74,140,78,142,77,142,80,142,82,144,83,142,84,142,85,143,89,142,92,139,93,139,94,139,95,134,96,134,98,134,97,133,97,131,98,131,98,130,96,130,99,124,97,121,91,123,90,125,90,123,87,124,86,123,84,120,84,119,85,118,83,117,81,118,81,118,79,118,80,122,77,124,74,123,74,124,72,124,68,124,67,123,67,122,68,121,67,119,65,120,64,119,62,119,60,118,60,118,58,118,53,122,55,123,54,125,53,125,51,125,49,127,49,127,51,129,55,130,55,131,57,134,57,135,54,138,58,139,60,142,60,143,60,143,61,144,63,145,61,148,62,150,63,151,66,149,66,150" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'mkk\');"  onclick="pp_hessen_clickHessen(\'mkk\');"  alt="" shape="poly" coords="128,132,128,133,129,135,128,137,127,138,127,138,126,138,126,140,125,140,124,140,122,141,122,142,123,144,120,145,120,145,119,145,117,144,117,145,115,145,113,143,112,145,113,146,114,148,113,148,112,148,113,151,114,151,114,152,113,153,114,157,113,158,110,159,110,159,107,159,106,159,104,155,101,154,100,154,98,153,97,154,95,153,94,153,92,154,92,155,90,158,89,158,89,156,88,155,85,156,82,156,82,156,80,158,80,161,79,161,79,160,76,159,76,158,74,160,72,159,72,158,72,155,68,154,66,153,66,151,67,150,66,150,66,148,67,147,68,148,69,147,67,144,68,143,69,144,73,140,74,140,78,142,77,142,80,142,82,144,83,142,84,142,85,143,89,142,92,139,93,139,94,139,95,134,96,134,98,134,97,133,97,131,98,131,98,130,96,130,99,124,99,121,102,122,104,126,103,127,103,129,104,129,106,129,108,127,110,124,111,123,111,123,112,126,116,129,120,128,121,129,124,131,125,131,128,132" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'lw\');"   onclick="pp_hessen_clickHessen(\'lw\');"   alt="" shape="poly" coords="23,138,23,136,22,135,22,134,21,133,20,133,20,130,20,130,20,129,16,127,17,127,17,126,15,126,15,125,14,125,13,124,15,123,15,122,14,122,15,121,16,121,16,120,16,119,15,119,15,116,15,116,15,115,16,113,18,111,18,111,19,110,20,111,21,112,23,112,24,112,23,112,24,111,26,108,26,106,27,108,29,110,31,108,33,109,33,110,36,114,37,115,39,116,40,119,41,121,43,120,44,120,43,122,46,125,41,126,41,128,39,128,37,131,36,132,37,136,38,137,36,139,33,139,31,140,30,137,26,138,25,138,23,138" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'htk\');"  onclick="pp_hessen_clickHessen(\'htk\');"  alt="" shape="poly" coords="46,125,48,127,49,127,49,127,51,129,55,130,55,131,57,134,57,135,54,138,58,139,60,142,60,143,60,143,61,144,61,145,57,147,53,150,53,151,52,151,51,150,50,150,50,151,48,150,48,151,46,150,44,150,43,148,40,148,39,147,38,146,38,145,42,144,40,142,42,141,42,141,41,139,38,137,37,136,36,132,37,131,39,128,41,128,41,126,46,125" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'ffm\');"  onclick="pp_hessen_clickHessen(\'ffm\');"  alt="" shape="poly" coords="66,150,67,150,66,151,66,153,62,156,62,159,62,161,55,162,54,163,53,165,50,165,48,165,48,165,49,163,51,162,49,159,49,161,47,158,46,157,46,157,46,156,47,156,48,155,49,155,51,154,51,154,53,153,54,151,53,151,53,150,57,147,61,145,61,144,63,145,61,148,62,150,63,151,66,149,66,150" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'of\');"   onclick="pp_hessen_clickHessen(\'of\');"   alt="" shape="poly" coords="62,161,62,159,62,156,66,153,68,154,68,158,69,159,68,160,66,160,64,162,64,162,64,161,63,161,62,161" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'kof\');"  onclick="pp_hessen_clickHessen(\'kof\');"  alt="" shape="poly" coords="79,161,79,161,79,162,79,163,81,163,82,165,82,167,81,168,78,168,76,167,73,171,71,171,70,171,67,173,65,171,64,172,63,171,62,172,60,172,58,172,55,171,56,170,54,166,54,166,53,165,54,163,55,162,62,161,63,161,64,161,64,162,64,162,66,160,68,160,69,159,68,158,68,154,72,155,72,158,72,159,74,160,76,158,76,159,79,160,79,161" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'rtk\');"  onclick="pp_hessen_clickHessen(\'rtk\');"  alt="" shape="poly" coords="26,163,25,164,24,164,20,165,18,166,14,168,13,168,11,169,7,169,6,168,6,168,5,165,4,164,2,162,1,161,0,159,2,158,2,157,4,156,4,155,5,153,5,153,6,154,9,154,10,156,10,156,10,152,10,151,9,151,9,151,9,150,8,150,8,149,7,148,9,146,9,146,12,144,12,144,14,143,15,142,15,143,16,143,16,144,18,144,18,143,19,143,18,141,17,140,17,140,18,139,19,139,22,140,23,139,23,138,25,138,26,138,30,137,31,140,33,139,36,139,38,137,41,139,42,141,42,141,40,142,42,144,38,145,38,146,38,148,37,147,39,151,38,151,36,152,36,151,31,152,30,153,27,154,25,154,22,157,24,158,22,158,24,159,26,163" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'wi\');"   onclick="pp_hessen_clickHessen(\'wi\');"   alt="" shape="poly" coords="34,167,30,164,27,163,26,163,24,159,22,158,24,158,22,157,25,154,27,154,30,153,31,152,36,151,36,152,36,153,36,154,38,154,38,160,38,162,39,162,39,162,39,163,36,164,36,167,34,167" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'mtk\');"  onclick="pp_hessen_clickHessen(\'mtk\');"  alt="" shape="poly" coords="36,167,37,167,38,167,40,167,42,166,44,165,45,164,49,161,47,158,46,157,46,157,46,156,47,156,48,155,49,155,51,154,51,154,53,153,54,151,53,151,52,151,51,150,50,150,50,151,48,150,48,151,46,150,44,150,43,148,40,148,39,147,38,146,38,148,37,147,39,151,38,151,36,152,36,153,36,154,38,154,38,160,38,162,39,162,39,162,39,163,36,164,36,167" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'gg\');"   onclick="pp_hessen_clickHessen(\'gg\');"   alt="" shape="poly" coords="43,194,46,195,49,196,49,196,50,194,51,191,51,190,50,191,49,189,50,185,48,180,48,180,51,179,50,175,51,173,52,173,52,171,54,172,53,171,55,171,56,170,54,166,54,166,53,165,50,165,48,165,48,165,49,163,51,162,49,159,49,161,45,164,44,165,42,166,40,167,38,167,37,167,36,167,34,167,36,170,37,173,37,173,37,174,37,177,37,178,38,180,39,181,39,182,39,184,39,184,39,185,39,185,40,187,41,189,41,190,43,191,45,190,45,191,43,194" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'da\');"   onclick="pp_hessen_clickHessen(\'da\');"   alt="" shape="poly" coords="58,172,60,172,62,172,63,177,63,178,62,179,62,181,59,183,58,184,58,187,57,188,56,188,55,186,54,184,53,183,51,184,51,182,53,181,54,179,56,177,55,176,55,173,58,173,58,172" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'dadi\');" onclick="pp_hessen_clickHessen(\'dadi\');" alt="" shape="poly" coords="81,168,81,172,81,173,82,180,83,181,82,182,82,182,82,183,81,182,80,182,80,184,79,186,77,187,77,188,75,188,74,189,72,188,71,189,71,188,71,188,69,191,69,191,67,194,66,194,66,194,65,195,62,195,60,192,59,193,58,195,56,195,54,194,53,194,51,195,50,194,51,191,51,190,50,191,49,189,50,185,48,180,48,180,51,179,50,175,51,173,52,173,52,171,54,172,53,171,55,171,58,172,58,173,55,173,55,176,56,177,54,179,53,181,51,182,51,184,53,183,54,184,55,186,56,188,57,188,58,187,58,184,59,183,62,181,62,179,63,178,63,177,62,172,63,171,64,172,65,171,67,173,70,171,71,171,73,171,76,167,78,168,81,168" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'bs\');"   onclick="pp_hessen_clickHessen(\'bs\');"   alt="" shape="poly" coords="72,218,70,218,68,218,67,218,67,215,66,216,65,216,64,216,64,216,59,214,60,213,59,212,58,209,59,208,59,205,53,206,53,207,52,207,52,208,53,208,54,213,51,216,49,215,46,210,44,208,41,209,41,208,39,205,38,201,37,199,37,197,42,196,43,194,43,194,46,195,49,196,49,196,50,194,51,195,53,194,54,194,56,195,58,195,59,193,60,192,62,195,65,195,66,194,66,194,66,194,66,197,66,199,69,202,71,202,72,202,71,203,72,206,71,206,72,207,71,207,72,210,71,212,72,218" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'bs\');"   onclick="pp_hessen_clickHessen(\'bs\');"   alt="" shape="poly" coords="75,221,76,222,74,224,73,223,72,226,71,226,69,228,67,228,66,227,68,225,68,222,67,222,69,220,70,222,72,219,75,221" />';
+				$block_content .= '<area href="javascript:void(0);" onmouseout="pp_hessen_outHessen();" onmouseover="pp_hessen_overHessen(\'ow\');"   onclick="pp_hessen_clickHessen(\'ow\');"   alt="" shape="poly" coords="82,183,84,185,85,183,85,188,86,189,87,188,88,188,88,190,87,190,86,192,88,192,88,193,89,194,89,195,88,195,88,196,87,196,88,197,88,198,86,198,85,199,85,201,86,202,86,204,84,206,84,208,86,210,86,212,84,210,84,212,85,214,87,215,87,216,86,217,85,215,84,216,83,215,83,216,82,218,80,218,78,217,77,218,76,217,76,218,74,221,72,219,72,218,71,212,72,210,71,207,72,207,71,206,72,206,71,203,72,202,71,202,69,202,66,199,66,197,66,194,66,194,67,194,69,191,69,191,71,188,71,188,71,189,72,188,74,189,75,188,77,188,77,187,79,186,80,184,80,182,81,182,82,183" />';
+				$block_content .= '</map>';
+				$block_content .= '<div id="pp_hessen_region">';
+				$block_content .= '<div id="pp_hessen_regionClose"></div>';
+				$block_content .= '<div id="pp_hessen_regionTitle"></div>';
+				$block_content .= '<div id="pp_hessen_regionLine1"></div>';
+				$block_content .= '<div id="pp_hessen_regionLine2"></div>';
+				$block_content .= '<div id="pp_hessen_regionLine3"></div>';
+				$block_content .= '<div id="pp_hessen_regionLine4"></div>';
+				$block_content .= '</div>';
+				$block_content .= '<div style="width: 100%; text-align: right;"><a href="http://wiki.piratenpartei.de/HE:Gliederungen" title="mehr">&raquo; Mehr</a></div>';
 
 			// set up the block
 				$block['subject'] = 'Piraten in Hessen';

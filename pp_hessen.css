@@ -1,0 +1,20 @@
+#pp_hessen_karteHessen {
+	background: url(pp_hessen_map.png) 0 0 no-repeat;
+}
+#pp_hessen_region {
+	margin-top: 5px;
+}
+#pp_hessen_regionTitle {
+	font-weight: bold;
+}
+#pp_hessen_regionClose {
+	float: right;
+	background: url(pp_hessen_close.png) 0 0 no-repeat;
+	width: 7px;
+	height: 7px;
+	margin-top: 6px;
+}
+#pp_hessen_regionClose:hover {
+	background-position: 0 -7px;
+	cursor: pointer;
+}
