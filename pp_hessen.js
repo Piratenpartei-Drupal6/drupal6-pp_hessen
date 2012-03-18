@@ -149,7 +149,7 @@ var pp_hessen = {
 		title: "Offenbach am Main",
 		lines: [
 			"28 Piraten", // 22
-			"Stadtfraktion",
+			"<a href='http://www.piratenpartei-offenbach.de/content/fraktion-2011-2016'>Stadtfraktion</a>",
 			"<a href='http://www.piratenpartei-offenbach.de/content/piraten-treff-offenbach'>Stammtisch</a>",
 			"<a href='http://lists.piratenpartei-hessen.de/mailman/listinfo/kreis-of'>Mit- und Neupiraten gesucht</a>",
 		]
