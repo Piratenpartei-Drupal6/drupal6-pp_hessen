@@ -55,6 +55,10 @@ function pp_hessen_init() {
 											"url"	=>	"www.piratenpartei-lahn-dill.de",
 											"id"	=>	10,
 										),
+			"Limburg-Weilburg"		=>	array(
+											"url"	=>	"www.piratenpartei-limburg-weilburg.de",
+											"id"	=>	14,
+										),
 			"Main-Kinzig"			=>	array(
 											"url"	=>	"www.kinzigpiraten.de",
 											"id"	=>	13,
@@ -74,6 +78,10 @@ function pp_hessen_init() {
 			"Odenwald"				=>	array(
 											"url"	=>	"www.piratenpartei-odenwald.de",
 											"id"	=>	26,
+										),
+			"Rheingau-Taunus"		=>	array(
+											"url"	=>	"www.piratenpartei-rtk.de",
+											"id"	=>	19,
 										),
 			"Waldeck-Frankenberg"	=>	array(
 											"url"	=>	"piraten-waldeck-frankenberg.de",

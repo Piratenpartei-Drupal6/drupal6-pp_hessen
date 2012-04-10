@@ -3,4 +3,4 @@ package = Piratenpartei
 name = Piratenpartei Piraten in Hessen
 description = Zeigt einen Block aller aktiven Piraten inkl. Verlinkung aus und in Hessen an.
 core = 6.x
-version = "6.x-1.4"
+version = "6.x-1.5"
