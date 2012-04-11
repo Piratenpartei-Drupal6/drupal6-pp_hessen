@@ -3,7 +3,7 @@ var pp_hessen = {
 		offset: 1,
 		title: "Kreis Kassel",
 		lines: [
-			"33 Piraten", // 25
+			"31 Piraten", // 25
 			"<a href='http://www.piratenpartei-kassel.de/content/kreistag-kasssel'>1 Pirat im Kreistag</a>",
 			"<a href='http://www.piratenpartei-kassel.de/mitmachen'>Mit- und Neupiraten gesucht</a>",
 		]
@@ -12,7 +12,7 @@ var pp_hessen = {
 		offset: 2,
 		title: "Kassel",
 		lines: [
-			"51 Piraten", // 41
+			"55 Piraten", // 41
 			"<a href='http://www.piratenpartei-kassel.de/content/unsere-kandidaten-f%C3%BCr-die-stadtverordnetenversammlung'>2 Piraten in Kassel</a>",
 			"<a href='http://www.piratenpartei-kassel.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
@@ -21,7 +21,7 @@ var pp_hessen = {
 		offset: 3,
 		title: "Werra-Meißner-Kreis",
 		lines: [
-			"12 Piraten", // 5
+			"13 Piraten", // 5
 			"<a href='http://lists.piratenpartei-hessen.de/mailman/listinfo/werra-meissner-kreis'>Mit- und Neupiraten gesucht</a>",
 		]
 	},
@@ -39,15 +39,15 @@ var pp_hessen = {
 		offset: 5,
 		title: "Schwalm-Eder-Kreis",
 		lines: [
-			"28 Piraten", // 17
-			"<a href='http://lists.piratenpartei-hessen.de/mailman/listinfo/werra-meissner-kreis'>Mit- und Neupiraten gesucht</a>",
+			"31 Piraten", // 17
+			"<a href='http://piraten-sek.de/forum'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	hr: {
 		offset: 6,
 		title: "Kreis Hersfeld-Rotenburg",
 		lines: [
-			"14 Piraten", // 8
+			"15 Piraten", // 8
 			"<a href='http://www.piratenpartei-hefrof.de/stammtisch'>Stammtisch</a>",
 			"<a href='http://www.piratenpartei-hefrof.de/mitmachen'>Mit- und Neupiraten gesucht</a>",
 		]
@@ -56,7 +56,7 @@ var pp_hessen = {
 		offset: 7,
 		title: "Kreis Marburg-Biedenkopf",
 		lines: [
-			"47 Piraten", // 39
+			"54 Piraten", // 39
 			"<a href='http://www.piratenpartei-marburg.de/abgeordnete'>1 Pirat im Kreistag</a>",
 			"<a href='http://www.piratenpartei-marburg.de/abgeordnete'>1 Pirat in Marburg</a>",
 			"<a href='http://www.piratenpartei-marburg.de/mitmachen'>Mitmachen im Kreisverband</a>",
@@ -66,7 +66,7 @@ var pp_hessen = {
 		offset: 8,
 		title: "Kreis Vogelsberg",
 		lines: [
-			"12 Piraten", // 11
+			"13 Piraten", // 11
 			"<a href='http://lists.piratenpartei-hessen.de/mailman/listinfo/vogelsberg'>Mit- und Neupiraten gesucht</a>",
 		]
 	},
@@ -74,7 +74,7 @@ var pp_hessen = {
 		offset: 9,
 		title: "Kreis Fulda",
 		lines: [
-			"24 Piraten", // 12
+			"26 Piraten", // 12
 			"<a href='http://www.piraten-fulda.de/content/stammtisch'>Stammtisch</a>",
 			"<a href='http://www.piraten-fulda.de/content/mitmachen'>Mit- und Neupiraten gesucht</a>",
 		]
@@ -83,7 +83,7 @@ var pp_hessen = {
 		offset: 10,
 		title: "Lahn-Dill-Kreis",
 		lines: [
-			"24 Piraten", // 15
+			"25 Piraten", // 15
 			"<a href='http://www.piratenpartei-lahn-dill.de/treffen'>Stammtisch</a>",
 			"<a href='http://www.piratenpartei-lahn-dill.de/mitmachen'>Mit- und Neupiraten gesucht</a>",
 		]
@@ -92,7 +92,7 @@ var pp_hessen = {
 		offset: 11,
 		title: "Gießen",
 		lines: [
-			"38 Piraten", // 28
+			"39 Piraten", // 28
 			"<a href='http://www.piraten-giessen.de/kreistagsabgeordnete'>2 Piraten im Kreistag</a>",
 			"<a href='http://www.piraten-giessen.de/stadtfraktion'>Stadtfraktion</a>",
 			"<a href='http://www.piraten-giessen.de/mitmachen'>Mitmachen im Kreisverband</a>",
@@ -102,7 +102,7 @@ var pp_hessen = {
 		offset: 12,
 		title: "Kreis Wetterau",
 		lines: [
-			"58 Piraten", // 47
+			"60 Piraten", // 47
 			"<a href='http://www.piratenpartei-wetterau.de/content/wetteraukreis'>1 Pirat im Kreistag</a>",
 			"<a href='http://www.piratenpartei-wetterau.de/content/rosbach-vdh'>1 Pirat in Rosbach v.d.H.</a>",
 			"<a href='http://www.piratenpartei-wetterau.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
@@ -112,7 +112,7 @@ var pp_hessen = {
 		offset: 13,
 		title: "Main-Kinzig-Kreis",
 		lines: [
-			"65 Piraten", // 48
+			"68 Piraten", // 48
 			"<a href='http://www.kinzigpiraten.de/kreistag'>Kreistagsfraktion</a>",
 			"<a href='http://www.kinzigpiraten.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
@@ -121,7 +121,7 @@ var pp_hessen = {
 		offset: 14,
 		title: "Kreis Limburg-Weilburg",
 		lines: [
-			"23 Piraten", // 13
+			"25 Piraten", // 13
 			"<a href='http://www.piratenpartei-limburg-weilburg.de/content/die-mitmachpartei#Stammtische'>Stammtisch</a>",
 			"<a href='http://www.piratenpartei-limburg-weilburg.de/content/die-mitmachpartei'>Mit- und Neupiraten gesucht</a>",
 		]
@@ -130,7 +130,7 @@ var pp_hessen = {
 		offset: 15,
 		title: "Hochtaunuskreis",
 		lines: [
-			"54 Piraten", // 45
+			"55 Piraten", // 45
 			"<a href='http://www.piratenpartei-hochtaunus.de/kreistag'>1 Pirat im Kreistag</a>",
 			"<a href='http://www.piratenpartei-hochtaunus.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
@@ -139,7 +139,7 @@ var pp_hessen = {
 		offset: 16,
 		title: "Frankfurt am Main",
 		lines: [
-			"197 Piraten", // 147
+			"210 Piraten", // 147
 			"<a href='http://elf-piraten.de'>Fraktion ELF Piraten</a>",
 			"<a href='http://www.piratenpartei-frankfurt.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
@@ -148,7 +148,7 @@ var pp_hessen = {
 		offset: 17,
 		title: "Offenbach am Main",
 		lines: [
-			"28 Piraten", // 22
+			"30 Piraten", // 22
 			"<a href='http://www.piratenpartei-offenbach.de/content/fraktion-2011-2016'>Stadtfraktion</a>",
 			"<a href='http://www.piratenpartei-offenbach.de/content/piraten-treff-offenbach'>Stammtisch</a>",
 			"<a href='http://lists.piratenpartei-hessen.de/mailman/listinfo/kreis-of'>Mit- und Neupiraten gesucht</a>",
@@ -158,7 +158,7 @@ var pp_hessen = {
 		offset: 18,
 		title: "Kreis Offenbach",
 		lines: [
-			"86 Piraten", // 64
+			"92 Piraten", // 64
 			"<a href='http://www.kreispiraten-of.de/content/fraktion-piraten-im-kreistag-offenbach-land'>Kreistagsfraktion</a>",
 			"<a href='http://www.kreispiraten-of.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
@@ -167,16 +167,15 @@ var pp_hessen = {
 		offset: 19,
 		title: "Rheingau-Taunus-Kreis",
 		lines: [
-			"32 Piraten", // 19
-			"<a href='http://www.piratenpartei-rtk.de/stammtisch'>Stammtisch</a>",
-			"<a href='http://www.piratenpartei-rtk.de/mitmachen'>Mit- und Neupiraten gesucht</a>",
+			"34 Piraten", // 19
+			"<a href='http://www.piratenpartei-rtk.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	wi: {
 		offset: 20,
 		title: "Wiesbaden",
 		lines: [
-			"88 Piraten", // 71
+			"92 Piraten", // 71
 			"<a href='http://linke-und-piraten-wiesbaden.de'>Fraktion LINKE&PIRATEN",
 			"<a href='http://www.piratenpartei-wiesbaden.de/werdepirat.aspx'>Mitmachen im Kreisverband</a>",
 		]
@@ -185,7 +184,7 @@ var pp_hessen = {
 		offset: 21,
 		title: "Main-Taunus-Kreis",
 		lines: [
-			"43 Piraten", // 32
+			"41 Piraten", // 32
 			"<a href='http://www.piraten-mtk.de'>Mitmachen im Kreisverband</a>",
 		]
 	},
@@ -193,7 +192,7 @@ var pp_hessen = {
 		offset: 22,
 		title: "Kreis Gross-Gerau",
 		lines: [
-			"38 Piraten", // 27
+			"39 Piraten", // 27
 			"<a href='http://www.piratenpartei-gross-gerau.de'>Mitmachen im Kreisverband</a>",
 		]
 	},
@@ -201,7 +200,7 @@ var pp_hessen = {
 		offset: 23,
 		title: "Darmstadt",
 		lines: [
-			"81 Piraten", // 63
+			"83 Piraten", // 63
 			"Stadtfraktion",
 			"<a href='http://www.piratenpartei-dadadi.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
@@ -210,7 +209,7 @@ var pp_hessen = {
 		offset: 24,
 		title: "Kreis Darmstadt-Dieburg",
 		lines: [
-			"59 Piraten", // 42
+			"61 Piraten", // 42
 			"Fraktion Freie Wähler - Piraten",
 			"<a href='http://www.piratenpartei-dadadi.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
@@ -219,7 +218,7 @@ var pp_hessen = {
 		offset: 25,
 		title: "Kreis Bergstrasse",
 		lines: [
-			"51 Piraten", // 41
+			"52 Piraten", // 41
 			"<a href='http://www.piraten-fraktion-bergstrasse.de'>Kreistagsfraktion</a>",
 			"<a href='http://www.piraten-bergstrasse.de'>Mitmachen im Kreisverband</a>",
 		]
