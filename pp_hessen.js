@@ -192,7 +192,7 @@ var pp_hessen = {
 		offset: 22,
 		title: "Kreis Gross-Gerau",
 		lines: [
-			"39 Piraten", // 27
+			"59 Piraten", // 39
 			"<a href='http://www.piratenpartei-gross-gerau.de'>Mitmachen im Kreisverband</a>",
 		]
 	},
