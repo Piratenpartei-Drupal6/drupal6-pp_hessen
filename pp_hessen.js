@@ -22,6 +22,7 @@ var pp_hessen = {
 		title: "Werra-Meißner-Kreis",
 		lines: [
 			"19 Piraten", // 5
+			"<a href='https://wiki.piratenpartei.de/HE:Stammtische#Stammtisch_Werra-Mei.C3.9Fner-Kreis'>Stammtische</a>",
 			"<a href='http://lists.piratenpartei-hessen.de/mailman/listinfo/werra-meissner-kreis'>Mit- und Neupiraten gesucht</a>",
 		]
 	},
@@ -67,7 +68,8 @@ var pp_hessen = {
 		title: "Kreis Vogelsberg",
 		lines: [
 			"22 Piraten", // 11
-			"<a href='http://lists.piratenpartei-hessen.de/mailman/listinfo/vogelsberg'>Mit- und Neupiraten gesucht</a>",
+			"<a href='http://www.piratenpartei-vogelsberg.de/stammtische'>Stammtische</a>",
+			"<a href='http://www.piratenpartei-vogelsberg.de/mitmachen'>Mit- und Neupiraten gesucht</a>",
 		]
 	},
 	fd: {
@@ -248,6 +250,7 @@ $(document).ready(function() {
 });
 
 function pp_hessen_outHessen() {
+	console.log(pp_hessen_default+" "+pp_hessen_clicked);
 	if (pp_hessen_clicked == "") {
 		$("#pp_hessen_karteHessen").css({backgroundPosition: "0 -"+229*pp_hessen_default+"px"});
 		$("#pp_hessen_regionTitle").html("Landesverband Hessen");

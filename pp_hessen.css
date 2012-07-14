@@ -1,5 +1,5 @@
 #pp_hessen_karteHessen {
-	background: url(pp_hessen_map.png) 0 0 no-repeat;
+	background: url(pp_hessen_map.png) 0 0 no-repeat !important;
 }
 #pp_hessen_region {
 	margin-top: 5px;

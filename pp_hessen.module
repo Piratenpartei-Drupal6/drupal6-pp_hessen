@@ -83,6 +83,10 @@ function pp_hessen_init() {
 											"url"	=>	"www.piratenpartei-rtk.de",
 											"id"	=>	19,
 										),
+			"Vogelsberg"			=>	array(
+											"url"	=>	"www.piratenpartei-vogelsberg.de",
+											"id"	=>	8,
+										),
 			"Waldeck-Frankenberg"	=>	array(
 											"url"	=>	"piraten-waldeck-frankenberg.de",
 											"id"	=>	4, /*no drupal */
