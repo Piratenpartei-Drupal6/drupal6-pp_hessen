@@ -65,7 +65,7 @@ function pp_hessen_get_regions() {
 											"site"	=>	"Hochtaunus",
 										),
 			"Kassel"				=>	array(
-											"site"	=>	"Kassel",
+											"site"	=>	"Kassel-Land",
 										),
 			"Kassel Stadt"			=>	array(
 											"site"	=>	"Kassel",
@@ -168,6 +168,10 @@ function pp_hessen_get_sites() {
 											"url"	=>	"www.piratenpartei-kassel.de",
 											"id"	=>	2,
 										),
+			"Kassel-Land"				=>	array(
+											"url"	=>	"www.piratenpartei-kassel.de",
+											"id"	=>	1,
+										),
 			"Kreis Offenbach"		=>	array(
 											"url"	=>	"www.kreispiraten-of.de",
 											"id"	=>	18,
@@ -254,8 +258,10 @@ function pp_hessen_init() {
 	// find home site
 		$homesite = 0;
 		foreach ($sites as $location => $data) {
-			if ($_SERVER["SERVER_NAME"] == $data["url"])
+			if ($_SERVER["SERVER_NAME"] == $data["url"]) {
 				$homesite = $data["id"];
+				continue;
+			}
 		}
 
 	// init js
