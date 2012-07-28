@@ -1,35 +1,152 @@
 <?php
 
 /**
+ * Implementation of hook_meu()
+ */
+function pp_hessen_menu() {
+  $items = array();
+
+  $items['admin/settings/piraten/hessen'] = array(
+    'title' => 'Hessen',
+    'description' => 'Wiki- und Cronjob-Einstellungen',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('pp_hessen_admin_form'),
+    'access arguments' => array('administer pp_hessen'),
+    'file' => 'pp_hessen.admin.inc'
+  );
+
+  $items['admin/settings/piraten/hessen/settings'] = array(
+    'title' => 'Settings',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  $items['admin/settings/piraten/hessen/update'] = array(
+    'title' => 'Update Now',
+    'page callback' => 'pp_hessen_update',
+    'access arguments' => array('update pp_hessen'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+  );
+
+  return $items;
+}
+
+/**
 *
 */
-function pp_hessen_init() {
-	// get path
-		$module_path = drupal_get_path('module', 'pp_hessen');
+function pp_hessen_get_regions() {
+	// regions
+		$regions = array(
+			"Bergstraße"			=>	array(
+											"site"	=>	"Bergstrasse",
+										),
+			"Darmstadt Stadt"		=>	array(
+											"site"	=>	"Darmstadt",
+										),
+			"Darmstadt-Dieburg"		=>	array(
+											"site"	=>	"Darmstadt-Dieburg",
+										),
+			"Frankfurt Stadt"		=>	array(
+											"site"	=>	"Frankfurt",
+										),
+			"Fulda"					=>	array(
+											"site"	=>	"Fulda",
+										),
+			"Gießen"				=>	array(
+											"site"	=>	"Gießen",
+										),
+			"Groß-Gerau"			=>	array(
+											"site"	=>	"Groß-Gerau",
+										),
+			"Hersfeld-Rotenburg"	=>	array(
+											"site"	=>	"Hersfeld-Rotenburg",
+										),
+			"Hochtaunuskreis"		=>	array(
+											"site"	=>	"Hochtaunus",
+										),
+			"Kassel"				=>	array(
+											"site"	=>	"Kassel",
+										),
+			"Kassel Stadt"			=>	array(
+											"site"	=>	"Kassel",
+										),
+			"Lahn-Dill-Kreis"		=>	array(
+											"site"	=>	"Lahn-Dill",
+										),
+			"Limburg-Weilburg"		=>	array(
+											"site"	=>	"Limburg-Weilburg",
+										),
+			"Main-Kinzig-Kreis"		=>	array(
+											"site"	=>	"Main-Kinzig",
+										),
+			"Main-Taunus-Kreis"		=>	array(
+											"site"	=>	"Main-Taunus",
+										),
+			"Marburg-Biedenkopf"	=>	array(
+											"site"	=>	"Marburg",
+										),
+			"Odenwaldkreis"			=>	array(
+											"site"	=>	"Odenwald",
+										),
+			"Offenbach Stadt"		=>	array(
+											"site"	=>	"Offenbach",
+										),
+			"Offenbach-Land"		=>	array(
+											"site"	=>	"Kreis Offenbach",
+										),
+			"Rheingau-Taunus-Kreis"	=>	array(
+											"site"	=>	"Rheingau-Taunus",
+										),
+			"Schwalm-Eder-Kreis"	=>	array(
+											"site"	=>	"Schwalm-Eder",
+										),
+			"Vogelsbergkreis"		=>	array(
+											"site"	=>	"Vogelsberg",
+										),
+			"Waldeck-Frankenberg"	=>	array(
+											"site"	=>	"Waldeck-Frankenberg",
+										),
+			"Werra-Meißner-Kreis"	=>	array(
+											"site"	=>	"Werra-Meißner",
+										),
+			"Wetteraukreis"			=>	array(
+											"site"	=>	"Wetterau",
+										),
+			"Wiesbaden"				=>	array(
+											"site"	=>	"Wiesbaden",
+										),
+		);
 
-	// add css
-		drupal_add_css($module_path.'/pp_hessen.css');
+	// return
+		return $regions;
+}
 
-	// add js
-		drupal_add_js($module_path.'/pp_hessen.js');
 
+/**
+*
+*/
+function pp_hessen_get_sites() {
 	// sites
 		$sites = array(
 			"Bergstrasse"			=>	array(
-											"url"	=>	"www.piraten-bergstrasse.de",
-											"id"	=>	25,
+											"url"		=>	"www.piraten-bergstrasse.de",
+											"id"		=>	25,
 										),
 			"Darmstadt"				=>	array(
-											"url"	=>	"www.piratenpartei-dadadi.de",
-											"id"	=>	23, /* no drupal*/
+											"url"		=>	"www.piratenpartei-dadadi.de",
+											"id"		=>	23, /* no drupal */
 										),
-			"Fulda"					=>	array(
-											"url"	=>	"www.piraten-fulda.de",
-											"id"	=>	9,
+			"Darmstadt-Dieburg"		=>	array(
+											"url"		=>	"www.piratenpartei-dadadi.de",
+											"id"		=>	24, /* no drupal */
 										),
 			"Frankfurt"				=>	array(
 											"url"	=>	"www.piratenpartei-frankfurt.de",
 											"id"	=>	16,
+										),
+			"Fulda"					=>	array(
+											"url"	=>	"www.piraten-fulda.de",
+											"id"	=>	9,
 										),
 			"Gießen"				=>	array(
 											"url"	=>	"www.piraten-giessen.de",
@@ -38,6 +155,10 @@ function pp_hessen_init() {
 			"Groß-Gerau"			=>	array(
 											"url"	=>	"www.piratenpartei-gross-gerau.de",
 											"id"	=>	22,
+										),
+			"Hersfeld-Rotenburg"	=>	array(
+											"url"	=>	"www.piratenpartei-hefrof.de/",
+											"id"	=>	6,
 										),
 			"Hochtaunus"			=>	array(
 											"url"	=>	"www.piratenpartei-hochtaunus.de",
@@ -71,17 +192,21 @@ function pp_hessen_init() {
 											"url"	=>	"www.piratenpartei-marburg.de",
 											"id"	=>	7,
 										),
-			"Offenbach"				=>	array(
-											"url"	=>	"www.piratenpartei-offenbach.de",
-											"id"	=>	17,
-										),
 			"Odenwald"				=>	array(
 											"url"	=>	"www.piratenpartei-odenwald.de",
 											"id"	=>	26,
 										),
+			"Offenbach"				=>	array(
+											"url"	=>	"www.piratenpartei-offenbach.de",
+											"id"	=>	17,
+										),
 			"Rheingau-Taunus"		=>	array(
 											"url"	=>	"www.piratenpartei-rtk.de",
 											"id"	=>	19,
+										),
+			"Schwalm-Eder"			=>	array(
+											"url"	=>	"http://piraten-sek.de",
+											"id"	=>	5, /* no drupal */
 										),
 			"Vogelsberg"			=>	array(
 											"url"	=>	"www.piratenpartei-vogelsberg.de",
@@ -89,7 +214,11 @@ function pp_hessen_init() {
 										),
 			"Waldeck-Frankenberg"	=>	array(
 											"url"	=>	"piraten-waldeck-frankenberg.de",
-											"id"	=>	4, /*no drupal */
+											"id"	=>	4, /* no drupal */
+										),
+			"Werra-Meißner"			=>	array(
+											"url"	=>	"http://piratenpartei-werra-meissner.de",
+											"id"	=>	3, /* no drupal */
 										),
 			"Wetterau"				=>	array(
 											"url"	=>	"www.piratenpartei-wetterau.de",
@@ -97,10 +226,30 @@ function pp_hessen_init() {
 										),
 			"Wiesbaden"				=>	array(
 											"url"	=>	"www.piratenpartei-wiesbaden.de",
-											"id"	=>	20, /* no drupal*/
+											"id"	=>	20, /* no drupal */
 										),
 		);
 		#ksort($sites);
+
+		return $sites;
+}
+
+
+/**
+*
+*/
+function pp_hessen_init() {
+	// get path
+		$module_path = drupal_get_path('module', 'pp_hessen');
+
+	// add css
+		drupal_add_css($module_path.'/pp_hessen.css');
+
+	// add js
+		drupal_add_js($module_path.'/pp_hessen.js');
+
+	// sites
+		$sites = pp_hessen_get_sites();
 
 	// find home site
 		$homesite = 0;
@@ -137,9 +286,9 @@ function pp_hessen_help($path, $arg) {
 * Valid permissions for this module
 * @return array An array of valid permissions for the pp_hessen module
 */
-#function pp_hessen_perm() {
-#  return array('administer pp_hessen');
-#} // function pp_hessen_perm()
+function pp_hessen_perm() {
+  return array('administer pp_hessen', 'update pp_hessen');
+} // function pp_hessen_perm()
 
 
 /**
@@ -154,39 +303,6 @@ function pp_hessen_block($op='list', $delta=0) {
 			$block[0]["info"] = t('Piraten in Hessen');
 			return $block;
 		} else if ($op == 'view') {
-/*
-			// our block content
-				$sites = array(
-					"Bergstrasse"			=>	"www.piraten-bergstrasse.de",
-					"Darmstadt"			=>	"www.piratenpartei-dadadi.de",
-					"Fulda"					=>	"www.piraten-fulda.de",
-					"Frankfurt"				=>	"www.piratenpartei-frankfurt.de",
-					"Gießen"				=>	"www.piraten-giessen.de",
-					"Groß-Gerau"			=>	"www.piratenpartei-gross-gerau.de",
-					"Hochtaunus"			=>	"www.piratenpartei-hochtaunus.de",
-					"Kassel"				=>	"www.piratenpartei-kassel.de",
-					"Kreis Offenbach"		=>	"www.kreispiraten-of.de",
-					#"Lahn-Dill"				=>	"www.piratenpartei-lahndill.de",
-					"Main-Kinzig"			=>	"www.kinzigpiraten.de",
-					#"Main-Taunus"			=>	"www.piraten-mtk.de",
-					"Marburg"				=>	"www.piratenpartei-marburg.de",
-					"Offenbach"				=>	"www.piratenpartei-offenbach.de",
-					"Odenwald"				=>	"www.piratenpartei-odenwald.de",
-					"Waldeck-Frankenberg"	=>	"piraten-waldeck-frankenberg.de",
-					"Wetterau"				=>	"www.piratenpartei-wetterau.de",
-					"Wiesbaden"				=>	"www.piratenpartei-wiesbaden.de",
-				);
-				ksort($sites);
-
-			// content variable that will be returned for display
-				$block_content	= '<ul class="menu">';
-				foreach ($sites as $location => $url) {
-					if ($_SERVER["SERVER_NAME"] != $url)
-						$block_content .= '<li><a href="http://'.$url.'" title="'.$location.'">'.$location.'</a></li>';
-				}
-				$block_content .= '</ul><div style="width: 100%; text-align: right;"><a href="http://wiki.piratenpartei.de/HE:Gliederungen" title="mehr">&raquo; Mehr</a></div>';
-*/
-
 			// vars
 				$module_path = drupal_get_path('module', 'pp_hessen');
 
@@ -236,6 +352,99 @@ function pp_hessen_block($op='list', $delta=0) {
 				$block['content'] = $block_content;
 				return $block;
 		}
+}
+
+/**
+*
+*/
+function pp_hessen_update() {
+	// run cron
+		$ret = pp_hessen_cron();
+
+	// clear cache
+		cache_clear_all(NULL, 'pp_hessen');
+
+	// return
+		return $ret;
+}
+
+/**
+*
+*/
+function pp_hessen_cron() {
+	global $base_path;
+
+	$url = variable_get('pp_hessen_url', NULL);
+	$site = variable_get('pp_hessen_site', NULL);
+	$checksum = variable_get('pp_hessen_checksum', NULL);
+
+	$vars = array(
+		"url" => $url,
+		"site" => $site,
+	);
+
+	$debug = false;
+
+	if (!empty($url) && !empty($site)) {
+		if ($debug) echo "<pre>";
+
+		$url = "http://".$url."/wiki//index.php?title=".$site."&printable=yes";
+		if ($debug) echo $url."\n";
+
+		$doc = new DOMDocument();
+		@$doc->loadHTMLFile($url);
+		
+		$trs = $doc->getElementsByTagName('tr');
+
+		$members = array();
+		for ($i = 0; $i < $trs->length; $i++) {
+			$tds = $trs->item($i)->getElementsByTagName('td');
+			if ($tds->length == 4) {
+				$region = trim((string)$tds->item(0)->nodeValue);
+				$count = trim((string)$tds->item(1)->nodeValue);
+				if (is_numeric($count)) {
+					$members[$region] = $count;
+				}
+			}
+		}
+		if ($debug) print_r($members);
+
+		$regions = pp_hessen_get_regions();
+		$sites = pp_hessen_get_sites();
+
+		$xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+		$xml .= "\n";
+		$xml .= "<mitglieder>\n";
+		$xml .= "\t<landesverband name='Hessen' mitglieder='".array_sum($members)."' website='http://www.piratenpartei-hessen.de' />\n";
+		$xml .= "\t<regionen>\n";
+		foreach ($members as $name => $count) {
+			$xml .= "\t\t<region name='".$name."' mitglieder='".$count."' website='".$sites[$regions[$name]["site"]]["url"]."' jsid='".$sites[$regions[$name]["site"]]["id"]."' />\n";
+		}
+		$xml .= "\t</regionen>\n";
+		$xml .= "</mitglieder>\n";
+
+		$xml = str_replace("'", '"', $xml);
+		
+		if ($debug) echo htmlentities($xml);
+
+		$chksm = sha1($xml);
+		if ($checksum != $chksm) {			
+			file_put_contents(getcwd() . $base_path . "mitglieder.xml", $xml);
+		
+			variable_set('pp_hessen_checksum', $chksm);
+			variable_set('pp_hessen_last_run', time());
+		
+			$ret = t("@members hessische Piraten im Wiki (@checksum) gefunden.", array('@members' => array_sum($members), '@checksum' => $chksm)); 
+		} else {
+			$ret = t("Im Wiki gab es keine neuen Änderungen.");
+		}
+
+		if ($debug) echo "</pre>";
+	} else {
+		watchdog('pp_hessen', t("Cron run failed: Missing variables"), $vars, WATCHDOG_ERROR);
+	}
+	
+	return $ret;
 }
 
 ?>
