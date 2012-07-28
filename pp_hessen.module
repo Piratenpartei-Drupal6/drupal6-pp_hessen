@@ -129,16 +129,16 @@ function pp_hessen_get_sites() {
 	// sites
 		$sites = array(
 			"Bergstrasse"			=>	array(
-											"url"		=>	"www.piraten-bergstrasse.de",
-											"id"		=>	25,
+											"url"	=>	"www.piraten-bergstrasse.de",
+											"id"	=>	25,
 										),
 			"Darmstadt"				=>	array(
-											"url"		=>	"www.piratenpartei-dadadi.de",
-											"id"		=>	23, /* no drupal */
+											"url"	=>	"www.piratenpartei-dadadi.de",
+											"id"	=>	23, /* no drupal */
 										),
 			"Darmstadt-Dieburg"		=>	array(
-											"url"		=>	"www.piratenpartei-dadadi.de",
-											"id"		=>	24, /* no drupal */
+											"url"	=>	"www.piratenpartei-dadadi.de",
+											"id"	=>	24, /* no drupal */
 										),
 			"Frankfurt"				=>	array(
 											"url"	=>	"www.piratenpartei-frankfurt.de",
@@ -157,7 +157,7 @@ function pp_hessen_get_sites() {
 											"id"	=>	22,
 										),
 			"Hersfeld-Rotenburg"	=>	array(
-											"url"	=>	"www.piratenpartei-hefrof.de/",
+											"url"	=>	"www.piratenpartei-hefrof.de",
 											"id"	=>	6,
 										),
 			"Hochtaunus"			=>	array(
@@ -205,7 +205,7 @@ function pp_hessen_get_sites() {
 											"id"	=>	19,
 										),
 			"Schwalm-Eder"			=>	array(
-											"url"	=>	"http://piraten-sek.de",
+											"url"	=>	"piraten-sek.de",
 											"id"	=>	5, /* no drupal */
 										),
 			"Vogelsberg"			=>	array(
@@ -217,7 +217,7 @@ function pp_hessen_get_sites() {
 											"id"	=>	4, /* no drupal */
 										),
 			"Werra-Meißner"			=>	array(
-											"url"	=>	"http://piratenpartei-werra-meissner.de",
+											"url"	=>	"piratenpartei-werra-meissner.de",
 											"id"	=>	3, /* no drupal */
 										),
 			"Wetterau"				=>	array(
@@ -418,7 +418,7 @@ function pp_hessen_cron() {
 		$xml .= "\t<landesverband name='Hessen' mitglieder='".array_sum($members)."' website='http://www.piratenpartei-hessen.de' />\n";
 		$xml .= "\t<regionen>\n";
 		foreach ($members as $name => $count) {
-			$xml .= "\t\t<region name='".$name."' mitglieder='".$count."' website='".$sites[$regions[$name]["site"]]["url"]."' jsid='".$sites[$regions[$name]["site"]]["id"]."' />\n";
+			$xml .= "\t\t<region name='".$name."' mitglieder='".$count."' website='http://".$sites[$regions[$name]["site"]]["url"]."' jsid='".$sites[$regions[$name]["site"]]["id"]."' />\n";
 		}
 		$xml .= "\t</regionen>\n";
 		$xml .= "</mitglieder>\n";
@@ -427,7 +427,7 @@ function pp_hessen_cron() {
 		
 		if ($debug) echo htmlentities($xml);
 
-		$chksm = sha1($xml);
+		$chksm = sha1($xml.$regions.$sites);
 		if ($checksum != $chksm) {			
 			file_put_contents(getcwd() . $base_path . "mitglieder.xml", $xml);
 		
