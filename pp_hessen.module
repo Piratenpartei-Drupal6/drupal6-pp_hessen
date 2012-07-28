@@ -6,27 +6,29 @@
 function pp_hessen_menu() {
   $items = array();
 
-  $items['admin/settings/piraten/hessen'] = array(
-    'title' => 'Hessen',
-    'description' => 'Wiki- und Cronjob-Einstellungen',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('pp_hessen_admin_form'),
-    'access arguments' => array('administer pp_hessen'),
-    'file' => 'pp_hessen.admin.inc'
-  );
+  if ($_SERVER["SERVER_NAME"] == "www.piratenpartei-frankfurt.de") {
+	  $items['admin/settings/piraten/hessen'] = array(
+		'title' => 'Hessen',
+		'description' => 'Wiki- und Cronjob-Einstellungen',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('pp_hessen_admin_form'),
+		'access arguments' => array('administer pp_hessen'),
+		'file' => 'pp_hessen.admin.inc'
+	  );
 
-  $items['admin/settings/piraten/hessen/settings'] = array(
-    'title' => 'Settings',
-    'type' => MENU_DEFAULT_LOCAL_TASK,
-  );
+	  $items['admin/settings/piraten/hessen/settings'] = array(
+		'title' => 'Settings',
+		'type' => MENU_DEFAULT_LOCAL_TASK,
+	  );
 
-  $items['admin/settings/piraten/hessen/update'] = array(
-    'title' => 'Update Now',
-    'page callback' => 'pp_hessen_update',
-    'access arguments' => array('update pp_hessen'),
-    'type' => MENU_LOCAL_TASK,
-    'weight' => 1,
-  );
+	  $items['admin/settings/piraten/hessen/update'] = array(
+		'title' => 'Update Now',
+		'page callback' => 'pp_hessen_update',
+		'access arguments' => array('update pp_hessen'),
+		'type' => MENU_LOCAL_TASK,
+		'weight' => 1,
+	  );
+  }
 
   return $items;
 }
