@@ -453,7 +453,8 @@ function pp_hessen_cron() {
 
 		if ($debug) echo "</pre>";
 	} else {
-		watchdog('pp_hessen', t("Cron run failed: Missing variables"), $vars, WATCHDOG_ERROR);
+		$ret = t("Cron run failed: Missing variables");
+		watchdog('pp_hessen', $ret, $vars, WATCHDOG_ERROR);
 	}
 	
 	return $ret;
