@@ -4,33 +4,33 @@
  * Implementation of hook_meu()
  */
 function pp_hessen_menu() {
-  $items = array();
+	$items = array();
 
-  if ($_SERVER["SERVER_NAME"] == "www.piratenpartei-hessen.de") {
-	  $items['admin/settings/piraten/hessen'] = array(
-		'title' => 'Hessen',
-		'description' => 'Wiki- und Cronjob-Einstellungen',
-		'page callback' => 'drupal_get_form',
-		'page arguments' => array('pp_hessen_admin_form'),
-		'access arguments' => array('administer pp_hessen'),
-		'file' => 'pp_hessen.admin.inc'
-	  );
+	if ($_SERVER["SERVER_NAME"] == "www.piratenpartei-hessen.de" || $_SERVER["SERVER_NAME"] == "dev.piratenpartei-hessen.de") {
+		$items['admin/settings/piraten/hessen'] = array(
+			'title' => 'Hessen',
+			'description' => 'Wiki- und Cronjob-Einstellungen',
+			'page callback' => 'drupal_get_form',
+			'page arguments' => array('pp_hessen_admin_form'),
+			'access arguments' => array('administer pp_hessen'),
+			'file' => 'pp_hessen.admin.inc'
+		);
 
-	  $items['admin/settings/piraten/hessen/settings'] = array(
-		'title' => 'Settings',
-		'type' => MENU_DEFAULT_LOCAL_TASK,
-	  );
+		$items['admin/settings/piraten/hessen/settings'] = array(
+			'title' => 'Settings',
+			'type' => MENU_DEFAULT_LOCAL_TASK,
+		);
 
-	  $items['admin/settings/piraten/hessen/update'] = array(
-		'title' => 'Update Now',
-		'page callback' => 'pp_hessen_update',
-		'access arguments' => array('update pp_hessen'),
-		'type' => MENU_LOCAL_TASK,
-		'weight' => 1,
-	  );
-  }
+		$items['admin/settings/piraten/hessen/update'] = array(
+			'title' => 'Update Now',
+			'page callback' => 'pp_hessen_update',
+			'access arguments' => array('update pp_hessen'),
+			'type' => MENU_LOCAL_TASK,
+			'weight' => 1,
+		);
+	}
 
-  return $items;
+	return $items;
 }
 
 /**
@@ -280,13 +280,15 @@ function pp_hessen_init() {
 *   help text for the path.
 */
 function pp_hessen_help($path, $arg) {
-  $output = '';
-  switch ($path) {
-    case "admin/help#pp_hessen":
-      $output = '<p>'. t("Zeigt den Block für Piraten aus und in Hessen").'</p>';
-      break;
-  }
-  return $output;
+	$output = '';
+
+	switch ($path) {
+		case "admin/help#pp_hessen":
+			$output = '<p>'. t("Zeigt den Block für Piraten aus und in Hessen").'</p>';
+			break;
+	}
+
+	return $output;
 } // function pp_hessen_help
 
 
@@ -295,11 +297,11 @@ function pp_hessen_help($path, $arg) {
 * @return array An array of valid permissions for the pp_hessen module
 */
 function pp_hessen_perm() {
-  if ($_SERVER["SERVER_NAME"] == "www.piratenpartei-hessen.de") {
-	return array('administer pp_hessen', 'update pp_hessen');
-  } else {
-    return array();
-  }
+	if ($_SERVER["SERVER_NAME"] == "www.piratenpartei-hessen.de" || $_SERVER["SERVER_NAME"] == "dev.piratenpartei-hessen.de") {
+		return array('administer pp_hessen', 'update pp_hessen');
+	} else {
+		return array();
+	}
 } // function pp_hessen_perm()
 
 
@@ -405,7 +407,7 @@ function pp_hessen_cron() {
 
 		$doc = new DOMDocument();
 		@$doc->loadHTMLFile($url);
-		
+
 		$trs = $doc->getElementsByTagName('tr');
 
 		$members = array();
@@ -436,17 +438,17 @@ function pp_hessen_cron() {
 		$xml .= "</mitglieder>\n";
 
 		$xml = str_replace("'", '"', $xml);
-		
+
 		if ($debug) echo htmlentities($xml);
 
 		$chksm = sha1($xml.$regions.$sites);
-		if ($checksum != $chksm) {			
+		if ($checksum != $chksm) {
 			file_put_contents(getcwd() . $base_path . "mitglieder.xml", $xml);
-		
+
 			variable_set('pp_hessen_checksum', $chksm);
 			variable_set('pp_hessen_last_run', time());
-		
-			$ret = t("@members hessische Piraten im Wiki (@checksum) gefunden.", array('@members' => array_sum($members), '@checksum' => $chksm)); 
+
+			$ret = t("@members hessische Piraten im Wiki (@checksum) gefunden.", array('@members' => array_sum($members), '@checksum' => $chksm));
 		} else {
 			$ret = t("Im Wiki gab es keine neuen Änderungen.");
 		}
@@ -456,7 +458,7 @@ function pp_hessen_cron() {
 		$ret = t("Cron run failed: Missing variables");
 		watchdog('pp_hessen', $ret, $vars, WATCHDOG_ERROR);
 	}
-	
+
 	return $ret;
 }
 
