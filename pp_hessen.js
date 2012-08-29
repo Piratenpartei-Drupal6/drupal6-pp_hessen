@@ -247,13 +247,19 @@ $(document).ready(function() {
 		dataType: "xml",
 		cache: false,
 		success: function(xml) {
-			pp_hessen_lv_count = pp_hessen_formatify($(xml).find('landesverband').attr("mitglieder"), ".") + " Piraten";
-			
+			var count = $(xml).find('landesverband').attr("mitglieder");
+			if (count > 0)
+				pp_hessen_lv_count = pp_hessen_formatify(count, ".") + " Piraten";
+
 			$.each(pp_hessen, function(idx, data) {
 				var mitglieder = $(xml).find('region[jsid='+data.offset+']').attr('mitglieder');
-				pp_hessen[idx].lines[0] = pp_hessen_formatify(mitglieder, ".") + " Piraten";
+				if (mitglieder > 0)
+					pp_hessen[idx].lines[0] = pp_hessen_formatify(mitglieder, ".") + " Piraten";
 			});
-			
+
+			pp_hessen_outHessen();
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
 			pp_hessen_outHessen();
 		}
 	});
@@ -267,9 +273,9 @@ $(document).ready(function() {
 });
 
 function pp_hessen_formatify(val, char) {
-    return String(val).split("").reverse().join("")
-                      .replace(/(.{3}\B)/g, "$1"+char)
-                      .split("").reverse().join("");
+	return String(val).split("").reverse().join("")
+		.replace(/(.{3}\B)/g, "$1"+char)
+		.split("").reverse().join("");
 }
 
 function pp_hessen_outHessen() {
@@ -280,7 +286,7 @@ function pp_hessen_outHessen() {
 			$("#pp_hessen_regionLine2").html("<a href='http://www.piratenpartei-hessen.de/kreisverbaende'>16 Kreisverbände</a>");
 			$("#pp_hessen_regionLine3").html("<a href='http://www.piratenpartei-hessen.de/kommunalpolitik'>32 Abgeordnete</a>");
 			$("#pp_hessen_regionLine4").html("<a href='http://www.piratenpartei-hessen.de/mitmachen'>Mitmachen</a>");
-			$("#pp_hessen_karteHessen").css({backgroundPosition: "0 0"});
+			$("#pp_hessen_karteHessen").css('background-position', '0 0');
 		} else {
 			var region = pp_hessen_getRegion();
 			pp_hessen_showTile(region);
@@ -296,7 +302,7 @@ function pp_hessen_getRegion() {
 		if (pp_hessen_default == data.offset)
 			region = key;
 	});
-	
+
 	return region;
 }
 
@@ -318,5 +324,7 @@ function pp_hessen_showTile(region) {
 	$("#pp_hessen_regionLine2").html(pp_hessen[region].lines[1] ? pp_hessen[region].lines[1] : "&nbsp;");
 	$("#pp_hessen_regionLine3").html(pp_hessen[region].lines[2] ? pp_hessen[region].lines[2] : "&nbsp;");
 	$("#pp_hessen_regionLine4").html(pp_hessen[region].lines[3] ? pp_hessen[region].lines[3] : "&nbsp;");
-	$("#pp_hessen_karteHessen").css({backgroundPosition: "0 -"+229*pp_hessen[region].offset+"px"});
+	var pos = 229 * pp_hessen[region].offset;
+	var css = "0 -"+pos+"px";
+	$("#pp_hessen_karteHessen").css('background-position', css);
 }
