@@ -232,7 +232,7 @@ var pp_hessen = {
 			"<a href='http://www.piratenpartei-odenwald.de/content/piraten-treffen'>Stammtisch</a>",
 			"<a href='http://www.piratenpartei-odenwald.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
-	},
+	}
 };
 
 var pp_hessen_clicked = "";
