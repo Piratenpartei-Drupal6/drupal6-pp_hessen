@@ -77,7 +77,7 @@ var pp_hessen = {
 		lines: [
 			"viele Piraten",
 			"<a href='http://www.piraten-fulda.de/content/stammtisch'>Stammtisch</a>",
-			"<a href='http://www.piraten-fulda.de/content/mitmachen'>Mit- und Neupiraten gesucht</a>",
+			"<a href='http://www.piraten-fulda.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	ldk: {
