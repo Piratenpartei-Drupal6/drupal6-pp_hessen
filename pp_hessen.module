@@ -28,6 +28,13 @@ function pp_hessen_menu() {
 			'type' => MENU_LOCAL_TASK,
 			'weight' => 1,
 		);
+
+		$items['admin/settings/piraten/hessen/reset'] = array(
+			'title' => 'Reset',
+			'page callback' => 'pp_hessen_reset',
+			'access arguments' => array('administer pp_hessen'),
+			'type' => MENU_CALLBACK,
+		);
 	}
 
 	return $items;
@@ -412,10 +419,17 @@ function pp_hessen_cron() {
 
 		$members = array();
 		for ($i = 0; $i < $trs->length; $i++) {
+			$ths = $trs->item($i)->getElementsByTagName('th');
 			$tds = $trs->item($i)->getElementsByTagName('td');
 			if ($tds->length == 4) {
 				$region = trim((string)$tds->item(0)->nodeValue);
 				$count = trim((string)$tds->item(1)->nodeValue);
+				if (is_numeric($count)) {
+					$members[$region] = $count;
+				}
+			} else if ($tds->length == 5) {
+				$region = trim((string)$ths->item(0)->nodeValue);
+				$count = trim((string)$tds->item(0)->nodeValue);
 				if (is_numeric($count)) {
 					$members[$region] = $count;
 				}
@@ -447,6 +461,7 @@ function pp_hessen_cron() {
 
 			variable_set('pp_hessen_checksum', $chksm);
 			variable_set('pp_hessen_last_run', time());
+			variable_set('pp_hessen_count', array_sum($members));
 
 			$ret = t("@members hessische Piraten im Wiki (@checksum) gefunden.", array('@members' => array_sum($members), '@checksum' => $chksm));
 		} else {
@@ -460,6 +475,14 @@ function pp_hessen_cron() {
 	}
 
 	return $ret;
+}
+
+function pp_hessen_reset() {
+	variable_set('pp_hessen_checksum', "-");
+	variable_set('pp_hessen_last_run', "-");
+	variable_set('pp_hessen_count', "-");
+
+	drupal_goto('admin/settings/piraten/hessen/settings');
 }
 
 ?>
