@@ -5,7 +5,7 @@ var pp_hessen = {
 		lines: [
 			"viele Piraten",
 			"<a href='http://www.piratenpartei-kassel.de/content/kreistag-kasssel'>1 Pirat im Kreistag</a>",
-			"<a href='http://www.piratenpartei-kassel.de/mitmachen'>Mit- und Neupiraten gesucht</a>",
+			"<a href='http://www.piratenpartei-kassel.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	ks: {
@@ -86,7 +86,7 @@ var pp_hessen = {
 		lines: [
 			"viele Piraten",
 			"<a href='http://www.piratenpartei-lahn-dill.de/treffen'>Stammtisch</a>",
-			"<a href='http://www.piratenpartei-lahn-dill.de/mitmachen'>Mit- und Neupiraten gesucht</a>",
+			"<a href='http://www.piratenpartei-lahn-dill.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	gi: {
