@@ -124,7 +124,7 @@ var pp_hessen = {
 		lines: [
 			"viele Piraten",
 			"<a href='http://www.piratenpartei-limburg-weilburg.de/content/die-mitmachpartei-regelm%C3%A4%C3%9Fige-treffen'>Stammtisch</a>",
-			"<a href='http://www.piratenpartei-limburg-weilburg.de/content/die-mitmachpartei'>Mit- und Neupiraten gesucht</a>",
+			"<a href='http://www.piratenpartei-limburg-weilburg.de'>Mit- und Neupiraten gesucht</a>",
 		]
 	},
 	htk: {
