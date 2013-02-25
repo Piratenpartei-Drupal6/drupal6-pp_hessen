@@ -123,7 +123,7 @@ var pp_hessen = {
 		title: "Kreis Limburg-Weilburg",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-limburg-weilburg.de/content/die-mitmachpartei#Stammtische'>Stammtisch</a>",
+			"<a href='http://www.piratenpartei-limburg-weilburg.de/content/die-mitmachpartei-regelm%C3%A4%C3%9Fige-treffen'>Stammtisch</a>",
 			"<a href='http://www.piratenpartei-limburg-weilburg.de/content/die-mitmachpartei'>Mit- und Neupiraten gesucht</a>",
 		]
 	},
