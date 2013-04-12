@@ -59,6 +59,7 @@ var pp_hessen = {
 		lines: [
 			"viele Piraten",
 			"<a href='http://www.piratenpartei-marburg.de/abgeordnete'>1 Pirat im Kreistag</a>",
+			"<a href='http://www.piratenpartei-marburg.de/abgeordnete'>1 Pirat im Stadtparlament</a>",
 			"<a href='http://www.piratenpartei-marburg.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
