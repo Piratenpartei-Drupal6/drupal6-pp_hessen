@@ -409,7 +409,7 @@ function pp_hessen_cron() {
 	if (!empty($url) && !empty($site)) {
 		if ($debug) echo "<pre>";
 
-		$url = "http://".$url."/wiki//index.php?title=".$site."&printable=yes";
+		$url = "http://".$url."/wiki/index.php?title=".$site."&printable=yes";
 		if ($debug) echo $url."\n";
 
 		$doc = new DOMDocument();
