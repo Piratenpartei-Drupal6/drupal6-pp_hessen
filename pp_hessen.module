@@ -6,7 +6,7 @@
 function pp_hessen_menu() {
 	$items = array();
 
-	if ($_SERVER["SERVER_NAME"] == "www.piratenpartei-hessen.de" || $_SERVER["SERVER_NAME"] == "dev.piratenpartei-hessen.de") {
+	#if ($_SERVER["SERVER_NAME"] == "www.piratenpartei-hessen.de" || $_SERVER["SERVER_NAME"] == "dev.piratenpartei-hessen.de") {
 		$items['admin/settings/piraten/hessen'] = array(
 			'title' => 'Hessen',
 			'description' => 'Wiki- und Cronjob-Einstellungen',
@@ -35,7 +35,7 @@ function pp_hessen_menu() {
 			'access arguments' => array('administer pp_hessen'),
 			'type' => MENU_CALLBACK,
 		);
-	}
+	#}
 
 	return $items;
 }
