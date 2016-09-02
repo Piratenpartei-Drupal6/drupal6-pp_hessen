@@ -440,7 +440,10 @@ function pp_hessen_cron() {
 		if ($debug) print_r($members);
 
 		$regions = pp_hessen_get_regions();
-		if ($debug) print_r($regions);
+		#if ($debug) print_r($regions);
+		foreach($regions as $region => $arr) {
+			echo $region." ".mb_detect_encoding($region)."\n";
+		}
 
 		$sites = pp_hessen_get_sites();
 
