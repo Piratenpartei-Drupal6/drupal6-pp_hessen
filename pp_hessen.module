@@ -395,6 +395,9 @@ function pp_hessen_update() {
 function pp_hessen_cron() {
 	global $base_path;
 
+	require_once('Encoding.php'); 
+	use \ForceUTF8\Encoding;
+
 	$url = variable_get('pp_hessen_url', NULL);
 	$site = variable_get('pp_hessen_site', NULL);
 	$checksum = variable_get('pp_hessen_checksum', NULL);
@@ -412,9 +415,9 @@ function pp_hessen_cron() {
 		$url = "http://".$url."/wiki/index.php?title=".$site."&printable=yes";
 		if ($debug) echo $url."\n";
 
-		$doc = new DOMDocument();
+		$doc = new DOMDocument('1.0', 'UTF-8');
 		@$doc->loadHTMLFile($url);
-		$doc->encoding = 'UTF-8';
+		$doc->encoding = 'utf-8';
 
 		$trs = $doc->getElementsByTagName('tr');
 
@@ -443,6 +446,7 @@ function pp_hessen_cron() {
 		#if ($debug) print_r($regions);
 		foreach($regions as $region => $arr) {
 			echo $region." ".mb_detect_encoding($region)."\n";
+			echo Encoding::toUTF8($region)."\n";
 		}
 
 		$sites = pp_hessen_get_sites();
