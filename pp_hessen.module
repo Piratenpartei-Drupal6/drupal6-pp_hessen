@@ -407,7 +407,7 @@ function pp_hessen_cron() {
 		"site" => $site,
 	);
 
-	$debug = true;
+	$debug = false;
 
 	if (!empty($url) && !empty($site)) {
 		if ($debug) echo "<pre>";
