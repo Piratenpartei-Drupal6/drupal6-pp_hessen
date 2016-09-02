@@ -414,6 +414,7 @@ function pp_hessen_cron() {
 
 		$doc = new DOMDocument();
 		@$doc->loadHTMLFile($url);
+		$doc->encoding = 'UTF-8';
 
 		$trs = $doc->getElementsByTagName('tr');
 
