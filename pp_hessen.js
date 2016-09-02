@@ -4,8 +4,7 @@ var pp_hessen = {
 		title: "Kreis Kassel",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-kassel.de/content/kreistag-kasssel'>1 Pirat im Kreistag</a>",
-			"<a href='http://www.piratenpartei-kassel.de/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='https://www.piratenpartei-kassel.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	ks: {
@@ -13,8 +12,8 @@ var pp_hessen = {
 		title: "Kassel",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-kassel.de/content/unsere-kandidaten-f%C3%BCr-die-stadtverordnetenversammlung'>2 Piraten in Kassel</a>",
-			"<a href='http://www.piratenpartei-kassel.de/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='http://volkerberkhout.de/'>1 Pirat in Kassel</a>",
+			"<a href='https://www.piratenpartei-kassel.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	wmk: {
@@ -31,9 +30,8 @@ var pp_hessen = {
 		title: "Kreis Waldeck-Frankenberg",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piraten-wa-fkb.de/abgeordnete.html'>1 Pirat im Kreistag</a>",
-			"<a href='http://www.piraten-wa-fkb.de/abgeordnete.html'>1 Pirat in Frankenau</a>",
-			"<a href='http://www.piraten-wa-fkb.de/mitmachen.html'>Mitmachen im Kreisverband</a>",
+			"<a href='http://www.piraten-wa-fkb.net/?page_id=820'>1 Pirat im Kreistag</a>",
+			"<a href='http://www.piraten-wa-fkb.net/?page_id=16'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	sek: {
@@ -41,6 +39,7 @@ var pp_hessen = {
 		title: "Schwalm-Eder-Kreis",
 		lines: [
 			"viele Piraten",
+			"<a href='http://piraten-sek.de/content/piraten-schwalm-eder-der-kommunalpolitik'>1 Pirat im Kreistag</a>",
 			"<a href='http://piraten-sek.de/forum'>Mitmachen im Kreisverband</a>",
 		]
 	},
@@ -49,8 +48,8 @@ var pp_hessen = {
 		title: "Kreis Hersfeld-Rotenburg",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-hefrof.de/stammtisch'>Stammtisch</a>",
-			"<a href='http://www.piratenpartei-hefrof.de/mitmachen'>Mit- und Neupiraten gesucht</a>",
+			"<a href='https://www.piratenpartei-hefrof.de/stammtisch'>Stammtisch</a>",
+			"<a href='https://www.piratenpartei-hefrof.de/mitmachen'>Mit- und Neupiraten gesucht</a>",
 		]
 	},
 	mr: {
@@ -68,8 +67,8 @@ var pp_hessen = {
 		title: "Kreis Vogelsberg",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-vogelsberg.de/stammtische'>Stammtische</a>",
-			"<a href='http://www.piratenpartei-vogelsberg.de/mitmachen'>Mit- und Neupiraten gesucht</a>",
+			"<a href='https://www.piratenpartei-vogelsberg.de/stammtische'>Stammtische</a>",
+			"<a href='https://www.piratenpartei-vogelsberg.de/mitmachen'>Mit- und Neupiraten gesucht</a>",
 		]
 	},
 	fd: {
@@ -77,8 +76,8 @@ var pp_hessen = {
 		title: "Kreis Fulda",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piraten-fulda.de/content/stammtisch'>Stammtisch</a>",
-			"<a href='http://www.piraten-fulda.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='https://www.piraten-fulda.de/content/stammtisch'>Stammtisch</a>",
+			"<a href='https://www.piraten-fulda.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	ldk: {
@@ -86,8 +85,8 @@ var pp_hessen = {
 		title: "Lahn-Dill-Kreis",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-lahn-dill.de/treffen'>Stammtisch</a>",
-			"<a href='http://www.piratenpartei-lahn-dill.de/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='https://www.piratenpartei-lahn-dill.de/treffen'>Stammtisch</a>",
+			"<a href='https://www.piratenpartei-lahn-dill.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	gi: {
@@ -95,9 +94,9 @@ var pp_hessen = {
 		title: "Gießen",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piraten-giessen.de/kreistagsabgeordnete'>2 Piraten im Kreistag</a>",
-			"<a href='http://www.piraten-giessen.de/stadtfraktion'>Stadtfraktion</a>",
-			"<a href='http://www.piraten-giessen.de/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='https://www.piraten-giessen.de/kommunalpolitik/kreistag'>1 Pirat im Kreistag</a>",
+			"<a href='https://www.piraten-giessen.de/kommunalpolitik/stadtverordnetenversammlung'>1 Pirat in Gießen</a>",
+			"<a href='https://www.piraten-giessen.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	fb: {
@@ -105,9 +104,8 @@ var pp_hessen = {
 		title: "Kreis Wetterau",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-wetterau.de/content/wetteraukreis'>1 Pirat im Kreistag</a>",
-			"<a href='http://www.piratenpartei-wetterau.de/content/rosbach-vdh'>1 Pirat in Rosbach v.d.H.</a>",
-			"<a href='http://www.piratenpartei-wetterau.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='https://www.piratenpartei-wetterau.de/partei/mandate/wetteraukreis/'>1 Pirat im Kreistag</a>",
+			"<a href='https://www.piratenpartei-wetterau.de/mitmachen/'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	mkk: {
@@ -115,8 +113,7 @@ var pp_hessen = {
 		title: "Main-Kinzig-Kreis",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.kinzigpiraten.de/kreistag'>Kreistagsfraktion</a>",
-			"<a href='http://www.kinzigpiraten.de/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='https://www.kinzigpiraten.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	lw: {
@@ -133,8 +130,7 @@ var pp_hessen = {
 		title: "Hochtaunuskreis",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-hochtaunus.de/kreistag'>1 Pirat im Kreistag</a>",
-			"<a href='http://www.piratenpartei-hochtaunus.de/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='https://www.piratenpartei-hochtaunus.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	ffm: {
@@ -142,8 +138,8 @@ var pp_hessen = {
 		title: "Frankfurt am Main",
 		lines: [
 			"viele Piraten",
-			"<a href='http://elf-piraten.de'>Fraktion ELF Piraten</a>",
-			"<a href='http://www.piratenpartei-frankfurt.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='http://www.die-fraktion.net'>Die Fraktion</a>",
+			"<a href='https://www.piratenpartei-frankfurt.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	of: {
@@ -151,9 +147,9 @@ var pp_hessen = {
 		title: "Offenbach am Main",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-offenbach.de/content/fraktion-2011-2016'>Stadtfraktion</a>",
-			"<a href='http://www.piratenpartei-offenbach.de/content/piraten-treff-offenbach'>Stammtisch</a>",
-			"<a href='http://lists.piratenpartei-hessen.de/mailman/listinfo/kreis-of'>Mit- und Neupiraten gesucht</a>",
+			"<a href='http://stadtpiraten-offenbach.de/?page_id=248'>Stadtfraktion</a>",
+			"<a href='http://stadtpiraten-offenbach.de/?cat=6'>Stammtisch</a>",
+			"<a href='http://lists.piratenpartei-hessen.de/cgi-bin/mailman/listinfo/offenbach'>Mit- und Neupiraten gesucht</a>",
 		]
 	},
 	kof: {
@@ -161,7 +157,7 @@ var pp_hessen = {
 		title: "Kreis Offenbach",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.kreispiraten-of.de/content/fraktion-piraten-im-kreistag-offenbach-land'>Kreistagsfraktion</a>",
+			"<a href='https://www.kreispiraten-of.de/kommunalwahl-2016'>1 Pirat im Kreistag</a>",
 			"<a href='http://www.kreispiraten-of.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
@@ -170,7 +166,7 @@ var pp_hessen = {
 		title: "Rheingau-Taunus-Kreis",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-rtk.de/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='http://lists.piratenpartei-hessen.de/cgi-bin/mailman/listinfo/rtk'>Mit- und Neupiraten gesucht</a>",
 		]
 	},
 	wi: {
@@ -187,7 +183,7 @@ var pp_hessen = {
 		title: "Main-Taunus-Kreis",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piraten-mtk.de'>Mitmachen im Kreisverband</a>",
+			"<a href='https://www.piraten-mtk.de'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	gg: {
@@ -195,7 +191,8 @@ var pp_hessen = {
 		title: "Kreis Gross-Gerau",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-gross-gerau.de'>Mitmachen im Kreisverband</a>",
+			"<a href='https://www.piratenpartei-gross-gerau.de/content/koalitionsvertrag-mit-orangen-tupfern'>1 Pirat im Kreistag</a>",
+			"<a href='https://www.piratenpartei-gross-gerau.de'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	da: {
@@ -203,8 +200,8 @@ var pp_hessen = {
 		title: "Darmstadt",
 		lines: [
 			"viele Piraten",
-			"Stadtfraktion",
-			"<a href='http://www.piratenpartei-dadadi.de/mitmachen'>Mitmachen im Kreisverband</a>",
+			"1 Pirat in Darmstadt",
+			"<a href='https://www.piratenpartei-dadadi.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	dadi: {
@@ -212,8 +209,8 @@ var pp_hessen = {
 		title: "Kreis Darmstadt-Dieburg",
 		lines: [
 			"viele Piraten",
-			"Fraktion Freie Wähler - Piraten",
-			"<a href='http://www.piratenpartei-dadadi.de/mitmachen'>Mitmachen im Kreisverband</a>",
+			"1 Pirat im Kreistag",
+			"<a href='https://www.piratenpartei-dadadi.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	bs: {
@@ -221,8 +218,8 @@ var pp_hessen = {
 		title: "Kreis Bergstrasse",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piraten-fraktion-bergstrasse.de'>Kreistagsfraktion</a>",
-			"<a href='http://www.piraten-bergstrasse.de'>Mitmachen im Kreisverband</a>",
+			"1 Pirat im Kreistag",
+			"<a href='https://www.piraten-bergstrasse.de'>Mitmachen im Kreisverband</a>",
 		]
 	},
 	ow: {
@@ -230,8 +227,7 @@ var pp_hessen = {
 		title: "Kreis Odenwald",
 		lines: [
 			"viele Piraten",
-			"<a href='http://www.piratenpartei-odenwald.de/content/piraten-treffen'>Stammtisch</a>",
-			"<a href='http://www.piratenpartei-odenwald.de/content/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='https://www.piratenpartei-dadadi.de/mitmachen'>Mitmachen im Kreisverband</a>",
 		]
 	}
 };
