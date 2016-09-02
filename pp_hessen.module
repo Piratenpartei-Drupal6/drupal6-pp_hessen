@@ -414,6 +414,7 @@ function pp_hessen_cron() {
 
 		$url = "http://".$url."/wiki/index.php?title=".$site."&printable=yes";
 		if ($debug) echo $url."\n";
+		if ($debug) echo "\n\n";
 
 		$doc = new DOMDocument('1.0', 'UTF-8');
 		@$doc->loadHTMLFile($url);
@@ -441,6 +442,7 @@ function pp_hessen_cron() {
 		}
 		unset($members["Total"]);
 		if ($debug) print_r($members);
+		if ($debug) echo "\n\n";
 
 		$regions = pp_hessen_get_regions();
 		#if ($debug) print_r($regions);
@@ -451,6 +453,7 @@ function pp_hessen_cron() {
 			if ($debug) echo $region." ".mb_detect_encoding($region)."\n";
 		}
 		$regions = $t;
+		if ($debug) echo "\n\n";
 
 		$sites = pp_hessen_get_sites();
 		#if ($debug) print_r($sites);
@@ -461,6 +464,7 @@ function pp_hessen_cron() {
 			if ($debug) echo $region." ".mb_detect_encoding($region)."\n";
 		}
 		$sites = $t;
+		if ($debug) echo "\n\n";
 
 		$xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
 		$xml .= "\n";
@@ -468,7 +472,7 @@ function pp_hessen_cron() {
 		$xml .= "\t<landesverband name='Hessen' mitglieder='".array_sum($members)."' website='http://www.piratenpartei-hessen.de' />\n";
 		$xml .= "\t<regionen>\n";
 		foreach ($members as $name => $count) {
-			$name = Encoding::toUTF8($name);
+			$name = Encoding::fixUTF8($name);
 			if ($debug) echo $name." ".mb_detect_encoding($name)." ".$regions[$name]."\n";
 			$xml .= "\t\t<region name='".$name."' mitglieder='".$count."' website='http://".$sites[$regions[$name]["site"]]["url"]."' jsid='".$sites[$regions[$name]["site"]]["id"]."' />\n";
 		}
