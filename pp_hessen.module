@@ -1,5 +1,8 @@
 <?php
 
+require_once('Encoding.php'); 
+use \ForceUTF8\Encoding;
+
 /**
  * Implementation of hook_meu()
  */
@@ -394,9 +397,6 @@ function pp_hessen_update() {
 */
 function pp_hessen_cron() {
 	global $base_path;
-
-	require_once('Encoding.php'); 
-	use \ForceUTF8\Encoding;
 
 	$url = variable_get('pp_hessen_url', NULL);
 	$site = variable_get('pp_hessen_site', NULL);
