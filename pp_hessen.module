@@ -421,19 +421,19 @@ function pp_hessen_cron() {
 		for ($i = 0; $i < $trs->length; $i++) {
 			$ths = $trs->item($i)->getElementsByTagName('th');
 			$tds = $trs->item($i)->getElementsByTagName('td');
-			if ($tds->length == 4) {
+			if ($tds->length == 6) {
 				$region = trim((string)$tds->item(0)->nodeValue);
 				$count = trim((string)$tds->item(1)->nodeValue);
 				if (is_numeric($count)) {
 					$members[$region] = $count;
 				}
-			} else if ($tds->length == 5) {
+/*			} else if ($tds->length == 5) {
 				$region = trim((string)$ths->item(0)->nodeValue);
 				$count = trim((string)$tds->item(0)->nodeValue);
 				if (is_numeric($count)) {
 					$members[$region] = $count;
 				}
-			}
+*/			}
 		}
 		if ($debug) print_r($members);
 
