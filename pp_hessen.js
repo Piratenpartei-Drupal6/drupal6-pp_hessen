@@ -279,7 +279,7 @@ function pp_hessen_outHessen() {
 		if (pp_hessen_default == 0) {
 			$("#pp_hessen_regionTitle").html("Landesverband Hessen");
 			$("#pp_hessen_regionLine1").html(pp_hessen_lv_count);
-			$("#pp_hessen_regionLine2").html("<a href='https://www.piratenpartei-hessen.de/kreisverbaende'>14 Kreisverbände</a>");
+			$("#pp_hessen_regionLine2").html("<a href='https://www.piratenpartei-hessen.de/kreisverbaende'>17 Kreisverbände</a>");
 			$("#pp_hessen_regionLine3").html("<a href='https://www.piratenpartei-hessen.de/kommunalpolitik'>16 Abgeordnete</a>");
 			$("#pp_hessen_regionLine4").html("<a href='https://www.piratenpartei-hessen.de/mitmachen'>Mitmachen</a>");
 			$("#pp_hessen_karteHessen").css('background-position', '0 0');
