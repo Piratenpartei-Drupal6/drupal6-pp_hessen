@@ -444,12 +444,23 @@ function pp_hessen_cron() {
 
 		$regions = pp_hessen_get_regions();
 		#if ($debug) print_r($regions);
-		/*foreach($regions as $region => $arr) {
-			echo $region." ".mb_detect_encoding($region)."\n";
-			echo Encoding::toUTF8($region)."\n";
-		}*/
+		$t = array();
+		foreach($regions as $region => $arr) {
+			$region = Encoding::toUTF8($region);
+			$t[$region] = $arr;
+			if ($debug) echo $region." ".mb_detect_encoding($region)."\n";
+		}
+		$regions = $t;
 
 		$sites = pp_hessen_get_sites();
+		#if ($debug) print_r($sites);
+		$t = array();
+		foreach($sites as $region => $arr) {
+			$region = Encoding::toUTF8($region);
+			$t[$region] = $arr;
+			if ($debug) echo $region." ".mb_detect_encoding($region)."\n";
+		}
+		$sites = $t;
 
 		$xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
 		$xml .= "\n";
