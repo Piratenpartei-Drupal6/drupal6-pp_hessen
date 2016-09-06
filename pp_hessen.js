@@ -86,7 +86,7 @@ var pp_hessen = {
 		lines: [
 			"viele Piraten",
 			"<a href='https://www.piratenpartei-lahn-dill.de/treffen'>Stammtisch</a>",
-			"<a href='https://www.piratenpartei-lahn-dill.de/mitmachen'>Mitmachen im Kreisverband</a>",
+			"<a href='http://lists.piratenpartei-hessen.de/mailman/listinfo/lahn-dill-kreis'>Mit- und Neupiraten gesucht</a>",
 		]
 	},
 	gi: {
