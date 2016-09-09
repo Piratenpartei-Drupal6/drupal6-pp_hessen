@@ -369,7 +369,7 @@ function pp_hessen_block($op='list', $delta=0) {
 				$block_content .= '<div id="pp_hessen_regionLine3"></div>';
 				$block_content .= '<div id="pp_hessen_regionLine4"></div>';
 				$block_content .= '</div>';
-				$block_content .= '<div style="width: 100%; text-align: right;"><a href="http://wiki.piratenpartei.de/HE:Gliederungen" title="mehr">&raquo; Mehr</a></div>';
+				$block_content .= '<div style="width: 100%; text-align: right;"><a href="https://wiki.piratenpartei.de/HE:Gliederungen" title="mehr">&raquo; Mehr</a></div>';
 
 			// set up the block
 				$block['subject'] = 'Piraten in Hessen';
