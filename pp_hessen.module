@@ -141,107 +141,107 @@ function pp_hessen_get_sites() {
 	// sites
 		$sites = array(
 			"Bergstrasse"			=>	array(
-											"url"	=>	"www.piraten-bergstrasse.de",
+											"url"	=>	array("https", "www.piraten-bergstrasse.de"),
 											"id"	=>	25,
 										),
 			"Darmstadt"				=>	array(
-											"url"	=>	"www.piratenpartei-dadadi.de",
+											"url"	=>	array("https", "www.piratenpartei-dadadi.de"),
 											"id"	=>	23, /* no drupal */
 										),
 			"Darmstadt-Dieburg"		=>	array(
-											"url"	=>	"www.piratenpartei-dadadi.de",
+											"url"	=>	array("https", "www.piratenpartei-dadadi.de"),
 											"id"	=>	24, /* no drupal */
 										),
 			"Frankfurt"				=>	array(
-											"url"	=>	"www.piratenpartei-frankfurt.de",
+											"url"	=>	array("https", "www.piratenpartei-frankfurt.de"),
 											"id"	=>	16,
 										),
 			"Fulda"					=>	array(
-											"url"	=>	"www.piraten-fulda.de",
+											"url"	=>	array("https", "www.piraten-fulda.de"),
 											"id"	=>	9,
 										),
 			"Gießen"				=>	array(
-											"url"	=>	"www.piraten-giessen.de",
+											"url"	=>	array("https", "www.piraten-giessen.de"),
 											"id"	=>	11,
 										),
 			"Groß-Gerau"			=>	array(
-											"url"	=>	"www.piratenpartei-gross-gerau.de",
+											"url"	=>	array("https", "www.piratenpartei-gross-gerau.de"),
 											"id"	=>	22,
 										),
 			"Hersfeld-Rotenburg"	=>	array(
-											"url"	=>	"www.piratenpartei-hefrof.de",
+											"url"	=>	array("https", "www.piratenpartei-hefrof.de"),
 											"id"	=>	6,
 										),
 			"Hochtaunus"			=>	array(
-											"url"	=>	"www.piratenpartei-hochtaunus.de",
+											"url"	=>	array("https", "www.piratenpartei-hochtaunus.de"),
 											"id"	=>	15,
 										),
 			"Kassel"				=>	array(
-											"url"	=>	"www.piratenpartei-kassel.de",
+											"url"	=>	array("https", "www.piratenpartei-kassel.de"),
 											"id"	=>	2,
 										),
 			"Kassel-Land"				=>	array(
-											"url"	=>	"www.piratenpartei-kassel.de",
+											"url"	=>	array("https", "www.piratenpartei-kassel.de"),
 											"id"	=>	1,
 										),
 			"Kreis Offenbach"		=>	array(
-											"url"	=>	"www.kreispiraten-of.de",
+											"url"	=>	array("https", "www.kreispiraten-of.de"),
 											"id"	=>	18,
 										),
 			"Lahn-Dill"				=>	array(
-											"url"	=>	"www.piratenpartei-lahn-dill.de",
+											"url"	=>	array("https", "www.piratenpartei-lahn-dill.de"),
 											"id"	=>	10,
 										),
 			"Limburg-Weilburg"		=>	array(
-											"url"	=>	"www.piratenpartei-limburg-weilburg.de",
+											"url"	=>	array("https", "www.piratenpartei-limburg-weilburg.de"),
 											"id"	=>	14,
 										),
 			"Main-Kinzig"			=>	array(
-											"url"	=>	"www.kinzigpiraten.de",
+											"url"	=>	array("https", "www.kinzigpiraten.de"),
 											"id"	=>	13,
 										),
 			"Main-Taunus"			=>	array(
-											"url"	=>	"www.piraten-mtk.de",
+											"url"	=>	array("https", "www.piraten-mtk.de"),
 											"id"	=>	21,
 										),
 			"Marburg"				=>	array(
-											"url"	=>	"www.piratenpartei-marburg.de",
+											"url"	=>	array("https", "www.piratenpartei-marburg.de"),
 											"id"	=>	7,
 										),
 			"Odenwald"				=>	array(
-											"url"	=>	"www.piratenpartei-odenwald.de",
-											"id"	=>	26,
+											"url"	=>	array("http", "www.piratenpartei-odenwald.de"),
+											"id"	=>	26, /* no drupal */
 										),
 			"Offenbach"				=>	array(
-											"url"	=>	"www.piratenpartei-offenbach.de",
-											"id"	=>	17,
+											"url"	=>	array("http", "www.piratenpartei-offenbach.de"),
+											"id"	=>	17, /* no drupal */
 										),
 			"Rheingau-Taunus"		=>	array(
-											"url"	=>	"www.piratenpartei-rtk.de",
+											"url"	=>	array("https", "www.piratenpartei-rtk.de"),
 											"id"	=>	19,
 										),
 			"Schwalm-Eder"			=>	array(
-											"url"	=>	"piraten-sek.de",
-											"id"	=>	5, /* no drupal */
+											"url"	=>	array("https", "piraten-sek.de"),
+											"id"	=>	5,
 										),
 			"Vogelsberg"			=>	array(
-											"url"	=>	"www.piratenpartei-vogelsberg.de",
+											"url"	=>	array("https", "www.piratenpartei-vogelsberg.de"),
 											"id"	=>	8,
 										),
 			"Waldeck-Frankenberg"	=>	array(
-											"url"	=>	"piraten-waldeck-frankenberg.de",
+											"url"	=>	array("http", "www.piraten-wa-fkb.net"),
 											"id"	=>	4, /* no drupal */
 										),
 			"Werra-Meißner"			=>	array(
-											"url"	=>	"piratenpartei-werra-meissner.de",
-											"id"	=>	3, /* no drupal */
+											"url"	=>	array("https", "piratenpartei-werra-meissner.de"),
+											"id"	=>	3,
 										),
 			"Wetterau"				=>	array(
-											"url"	=>	"www.piratenpartei-wetterau.de",
-											"id"	=>	12,
+											"url"	=>	array("https", "www.piratenpartei-wetterau.de"),
+											"id"	=>	12, /* no drupal */
 										),
 			"Wiesbaden"				=>	array(
-											"url"	=>	"www.piratenpartei-wiesbaden.de",
+											"url"	=>	array("http", "www.piratenpartei-wiesbaden.de"),
 											"id"	=>	20, /* no drupal */
 										),
 		);
@@ -270,7 +270,7 @@ function pp_hessen_init() {
 	// find home site
 		$homesite = 0;
 		foreach ($sites as $location => $data) {
-			if ($_SERVER["SERVER_NAME"] == $data["url"]) {
+			if ($_SERVER["SERVER_NAME"] == $data["url"][1]) {
 				$homesite = $data["id"];
 				continue;
 			}
@@ -473,8 +473,11 @@ function pp_hessen_cron() {
 		$xml .= "\t<regionen>\n";
 		foreach ($members as $name => $count) {
 			$name = Encoding::fixUTF8($name);
+			$url = $sites[$regions[$name]["site"]]["url"];
+			$jsid = $sites[$regions[$name]["site"]]["id"];
+			$website = $url[0]."://".$url[1];
 			if ($debug) echo $name." ".mb_detect_encoding($name)." ".$regions[$name]."\n";
-			$xml .= "\t\t<region name='".$name."' mitglieder='".$count."' website='http://".$sites[$regions[$name]["site"]]["url"]."' jsid='".$sites[$regions[$name]["site"]]["id"]."' />\n";
+			$xml .= "\t\t<region name='".$name."' mitglieder='".$count."' website='".$website."' jsid='".$jsid."' />\n";
 		}
 		$xml .= "\t</regionen>\n";
 		$xml .= "</mitglieder>\n";
